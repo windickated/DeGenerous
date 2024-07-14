@@ -2,8 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import StoryTile from "../components/storyTile.astro"
 ---
+
 <Layout>
-  <StoryTile storyTitle="Collabs"></StoryTile>
-  <StoryTile storyTitle="DischordianSaga"></StoryTile>
-  <StoryTile storyTitle="CommunityPics"></StoryTile>
+  <section>
+    <StoryTile storyTitle="Collabs"></StoryTile>
+    <StoryTile storyTitle="Dischordian Saga"></StoryTile>
+    <StoryTile storyTitle="Community Picks"></StoryTile>
+  </section>
 </Layout>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+</style>

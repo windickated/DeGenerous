@@ -1,4 +1,41 @@
 ---
-const { storyTitle, storyPicture } = Astro.props
+const { storyTitle } = Astro.props
+const storyLink = storyTitle.replace(/\s+/g, '');
 ---
-<a href=`CoNexus/${ storyTitle }`>{ storyTitle }</a>
+
+<div>
+  <img src=`conexusAssets/titlePicture/${storyLink}1.png` alt=`${storyTitle}`/>
+  <p>{ storyTitle }</a>
+</div>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30vw;
+    height: 34vw;
+    margin: 1vw;
+    padding-bottom: 3%;
+    background-color: #2441BD;
+    color: #dedede;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1.5vw;
+    filter: drop-shadow(0 0 0.1vw #010020);
+  }
+  img {
+    object-fit: cover;
+    width: 95%;
+    height: 80%;
+    margin: 2.5%;
+    margin-bottom: 0;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1vw;
+  }
+  p {
+    font-size: 3vw;
+    line-height: 3vw;
+    white-space: nowrap;
+  }
+</style>
