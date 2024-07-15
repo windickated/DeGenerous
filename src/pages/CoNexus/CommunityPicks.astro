@@ -2,12 +2,18 @@
 import Layout from "../../layouts/Layout.astro";
 import StoryTile from "../../components/CoNexus/storyTile.svelte"
 
+const arrow = 'arrow';
 const subheading = `
 Community Picks are stories that aren't bound to any project or genre but have been demanded, written, or voted in by the Potentials holders.`
 ---
 
-<Layout title="Community Picks | CoNexus" header="Community Picks" {subheading}>
+<Layout title="Community Picks | CoNexus" header="Community Picks" {subheading} {arrow}>
   <section class="tiles-section">
     <StoryTile storySection="CommunityPicks" storyName="Upcoming" />
   </section>
+
+  <script>
+    import addTilesListener from "../../components/CoNexus/listeners.js";
+    addTilesListener('story', 'CommunityPicks');
+  </script>
 </Layout>

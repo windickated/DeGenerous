@@ -1,5 +1,5 @@
 ---
-const { title, header, subheading } = Astro.props
+const { title, header, subheading, arrow } = Astro.props
 ---
 
 <html lang="en">
@@ -10,10 +10,51 @@ const { title, header, subheading } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="/src/styles/global.css">
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+		<style>
+			.header {
+				font-size: 5vw;
+				line-height: 5vw;
+				text-align: center;
+				margin: 2vw auto;
+				color: rgba(255, 255, 255, 0.75);
+				-webkit-text-stroke: 0.03vw #33E2E6;
+				filter: drop-shadow(0 0 0.1vw #33E2E6);
+			}
+
+			.subheading {
+				font-size: 2vw;
+				line-height: 2.5vw;
+				color: #bebebe;
+				padding: 0 2.5vw 1vw 2.5vw;
+			}
+
+			.arrow {
+				position: absolute;
+				top: 1vw;
+				left: 1vw;
+				height: 7vw;
+				width: 7vw;
+				background-image: url('/backArrow.png');
+				background-size: contain;
+				background-repeat: no-repeat;
+				cursor: pointer;
+				z-index: 1;
+			}
+
+			.arrow:hover {
+				background-image: url('/backArrowHover.png');
+			}
+
+			.none {
+				display: none;
+			}
+		</style>
 	</head>
 	<body>
 
-		<section class="header-section">
+		<section class="container">
+			<span class={arrow} />
 			<p class="header">{ header }</p>
 			<p class="subheading">{ subheading }</p>
 		</section>

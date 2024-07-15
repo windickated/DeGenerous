@@ -53,22 +53,6 @@ html {
   background-color: #010020;
 }
 
-.header {
-  font-size: 5vw;
-  line-height: 5vw;
-  text-align: center;
-  margin: 2vw auto;
-  color: rgba(255, 255, 255, 0.75);
-  -webkit-text-stroke: 0.03vw #33E2E6;
-  filter: drop-shadow(0 0 0.1vw #33E2E6);
-}
-
-.subheading {
-  font-size: 2vw;
-  line-height: 2.5vw;
-  color: #bebebe;
-  padding: 0 2.5vw 1vw 2.5vw;
-}
 
 /* CoNexus */
 

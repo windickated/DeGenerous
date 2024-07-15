@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-//import StoryTile from "../components/CoNexus/menuTile.astro"
 import MenuTile from "../components/CoNexus/menuTile.svelte";
 
 const subheading = `
@@ -16,7 +15,7 @@ Within CoNexus, you will transcend the boundaries of reality as we know it.`;
   </section>
 
   <script>
-    import addTilesListener from "../components/CoNexus/tilesListener.js";
+    import addTilesListener from "../components/CoNexus/listeners.js";
     addTilesListener('menu');
   </script>
 </Layout>

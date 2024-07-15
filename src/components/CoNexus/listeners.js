@@ -23,6 +23,10 @@ function addTilesListener(format, section) {
         alert('Story: ' + tile.id);
       })
     })
+
+    // Back arrow is active everywhere except the Menu
+    const backArrow = document.querySelector('.arrow');
+		backArrow.addEventListener('click', () => window.open('/CoNexus', '_self'));
   }
 }
 
