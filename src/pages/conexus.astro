@@ -1,13 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 //import StoryTile from "../components/CoNexus/menuTile.astro"
-import MenuTile from "../components/CoNexus/menuTile.svelte"
+import MenuTile from "../components/CoNexus/menuTile.svelte";
 ---
 
 <Layout title="CoNexus | DeGenerous" header="CoNexus">
   <section class="conexus-menu-tiles">
-    <MenuTile storySection="Collabs"></MenuTile>
-    <MenuTile storySection="Dischordian Saga"></MenuTile>
-    <MenuTile storySection="Community Picks"></MenuTile>
+    <MenuTile storySection="Collabs" />
+    <MenuTile storySection="Dischordian Saga" />
+    <MenuTile storySection="Community Picks" />
   </section>
+
+  <script>
+    import addTilesListener from "../components/CoNexus/tilesListener.js";
+    addTilesListener('menu');
+  </script>
 </Layout>

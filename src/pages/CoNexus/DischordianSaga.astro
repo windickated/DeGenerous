@@ -5,20 +5,25 @@ import StoryTile from "../../components/CoNexus/storyTile.svelte"
 
 <Layout title="Dischordian Saga | CoNexus" header="Dischordian Saga">
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga/General" storyName="Escape"></StoryTile>
-    <StoryTile storySection="DischordianSaga/General" storyName="Arena"></StoryTile>
+    <StoryTile storySection="DischordianSaga" storyName="Escape" />
+    <StoryTile storySection="DischordianSaga" storyName="Arena" />
   </section>
 
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Assassin"></StoryTile>
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Soldier"></StoryTile>
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Spy"></StoryTile>
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Engineer"></StoryTile>
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Oracle"></StoryTile>
-    <StoryTile storySection="DischordianSaga/ClassGated" storyName="NeYon"></StoryTile>
+    <StoryTile storySection="DischordianSaga" storyName="Assassin" />
+    <StoryTile storySection="DischordianSaga" storyName="Soldier" />
+    <StoryTile storySection="DischordianSaga" storyName="Spy" />
+    <StoryTile storySection="DischordianSaga" storyName="Engineer" />
+    <StoryTile storySection="DischordianSaga" storyName="Oracle" />
+    <StoryTile storySection="DischordianSaga" storyName="NeYon" />
   </section>
 
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga/TraitGated" storyName="Inception Ark"></StoryTile>
+    <StoryTile storySection="DischordianSaga" storyName="Inception Ark" />
   </section>
+
+  <script>
+    import addTilesListener from "../../components/CoNexus/tilesListener.js";
+    addTilesListener('story', 'DischordianSaga');
+  </script>
 </Layout>

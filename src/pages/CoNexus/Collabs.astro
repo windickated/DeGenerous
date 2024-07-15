@@ -5,6 +5,11 @@ import StoryTile from "../../components/CoNexus/storyTile.svelte"
 
 <Layout title="Collabs | CoNexus" header="Collabs">
   <section class="tiles-section">
-    <StoryTile storySection="Collabs" storyName="GLMR Apes"></StoryTile>
+    <StoryTile storySection="Collabs" storyName="GLMR Apes" />
   </section>
+
+  <script>
+    import addTilesListener from "../../components/CoNexus/tilesListener.js";
+    addTilesListener('story', 'Collabs');
+  </script>
 </Layout>

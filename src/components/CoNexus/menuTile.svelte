@@ -1,12 +1,17 @@
 <script>
   export let storySection;
   let storyLink = storySection.replace(/\s+/g, '');
+
+  const primaryImage = `conexusAssets/titlePicture/${storyLink}1.png`;
+  const secondaryImage = `conexusAssets/titlePicture/${storyLink}1.png`;
 </script>
 
+
 <a class="tile" id="{storySection}" href="CoNexus/{storyLink}">
-  <img src="conexusAssets/titlePicture/{storyLink}1.png" alt="{storySection}"/>
+  <img class="tile-picture" src={primaryImage} alt="{storySection}" />
   <p class="title">{ storySection }</p>
 </a>
+
 
 <style>
   .tile {
@@ -33,7 +38,7 @@
     filter: drop-shadow(0 0 0.5vw #33E2E6);
   }
 
-  img {
+  .tile-picture {
     object-fit: cover;
     width: 95%;
     height: 80%;

@@ -1,13 +1,18 @@
 <script>
-export let storySection;
-export let storyName;
-const storyLink = storyName.replace(/\s+/g, '');
+  export let storySection;
+  export let storyName;
+  const storyLink = storyName.replace(/\s+/g, '');
+
+  const primaryImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}1.png`;
+  const secondaryImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}2.png`;
 </script>
 
+
 <div class="tile" id="{storyName}">
-  <img src="/conexusAssets/titlePicture/{storySection}/{storyLink}1.png" alt="{storyName}"/>
+  <img class="tile-picture" src={primaryImage} alt="{storyName}"/>
   <p class="title">{ storyName }</p>
 </div>
+
 
 <style>
   .tile {
