@@ -1,9 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import StoryTile from "../../components/CoNexus/storyTile.svelte"
+
+const subheading = `
+Collabs are stories that are custom-written to add depth to the partners of DeGenerous DAO.`
 ---
 
-<Layout title="Collabs | CoNexus" header="Collabs">
+<Layout title="Collabs | CoNexus" header="Collabs" {subheading}>
   <section class="tiles-section">
     <StoryTile storySection="Collabs" storyName="GLMR Apes" />
   </section>

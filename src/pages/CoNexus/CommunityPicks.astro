@@ -1,9 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import StoryTile from "../../components/CoNexus/storyTile.svelte"
+
+const subheading = `
+Community Picks are stories that aren't bound to any project or genre but have been demanded, written, or voted in by the Potentials holders.`
 ---
 
-<Layout title="Community Picks | CoNexus" header="Community Picks">
+<Layout title="Community Picks | CoNexus" header="Community Picks" {subheading}>
   <section class="tiles-section">
     <StoryTile storySection="CommunityPicks" storyName="Upcoming" />
   </section>
