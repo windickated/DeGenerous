@@ -1,11 +1,11 @@
 ---
-const { storyName } = Astro.props
-const storyLink = storyName.replace(/\s+/g, '');
+const { storySection } = Astro.props
+const storyLink = storySection.replace(/\s+/g, '');
 ---
 
-<a class="tile" id=`${storyName}` href=`CoNexus/${storyLink}`>
-  <img src=`conexusAssets/titlePicture/${storyLink}1.png` alt=`${storyName}`/>
-  <p class="title">{ storyName }</a>
+<a class="tile" id=`${storySection}` href=`CoNexus/${storyLink}`>
+  <img src=`conexusAssets/titlePicture/${storyLink}1.png` alt=`${storySection}`/>
+  <p class="title">{ storySection }</a>
 </a>
 
 <style>
