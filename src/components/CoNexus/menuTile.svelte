@@ -1,0 +1,51 @@
+<script>
+  export let storySection;
+  export let storyLink;
+</script>
+
+<a class="tile" id="{storySection}" href="CoNexus/${storyLink}">
+  <img src="conexusAssets/titlePicture/${storyLink}1.png" alt="{storySection}"/>
+  <p class="title">{ storySection }</p>
+</a>
+
+<style>
+  .tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 30vw;
+    height: 34vw;
+    margin: 1vw;
+    padding-bottom: 3%;
+    background-color: #2441BD;
+    color: #dedede;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1.5vw;
+    filter: drop-shadow(0 0 0.1vw #010020);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    background-color: #2D5AD8;
+    color: #33E2E6;
+    filter: drop-shadow(0 0 0.5vw #33E2E6);
+  }
+
+  img {
+    object-fit: cover;
+    width: 95%;
+    height: 80%;
+    margin: 2.5%;
+    margin-bottom: 0;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1vw;
+  }
+
+  p {
+    font-size: 3vw;
+    line-height: 3vw;
+    white-space: nowrap;
+  }
+</style>
