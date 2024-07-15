@@ -1,10 +1,10 @@
 <script>
   export let storySection;
-  export let storyLink;
+  let storyLink = storySection.replace(/\s+/g, '');
 </script>
 
-<a class="tile" id="{storySection}" href="CoNexus/${storyLink}">
-  <img src="conexusAssets/titlePicture/${storyLink}1.png" alt="{storySection}"/>
+<a class="tile" id="{storySection}" href="CoNexus/{storyLink}">
+  <img src="conexusAssets/titlePicture/{storyLink}1.png" alt="{storySection}"/>
   <p class="title">{ storySection }</p>
 </a>
 

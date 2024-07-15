@@ -1,12 +1,13 @@
----
-const { storySection } = Astro.props
-const storyLink = storySection.replace(/\s+/g, '');
----
+<script>
+export let storySection;
+export let storyName;
+const storyLink = storyName.replace(/\s+/g, '');
+</script>
 
-<a class="tile" id=`${storySection}` href=`CoNexus/${storyLink}`>
-  <img src=`conexusAssets/titlePicture/${storyLink}1.png` alt=`${storySection}`/>
-  <p class="title">{ storySection }</a>
-</a>
+<div class="tile" id="{storyName}">
+  <img src="/conexusAssets/titlePicture/{storySection}/{storyLink}1.png" alt="{storyName}"/>
+  <p class="title">{ storyName }</p>
+</div>
 
 <style>
   .tile {
@@ -14,8 +15,8 @@ const storyLink = storySection.replace(/\s+/g, '');
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 30vw;
-    height: 34vw;
+    width: 24vw;
+    height: 28vw;
     margin: 1vw;
     padding-bottom: 3%;
     background-color: #2441BD;
@@ -25,9 +26,10 @@ const storyLink = storySection.replace(/\s+/g, '');
     filter: drop-shadow(0 0 0.1vw #010020);
     cursor: pointer;
     text-decoration: none;
+    flex: none;
   }
 
-  a:hover {
+  div:hover {
     background-color: #2D5AD8;
     color: #33E2E6;
     filter: drop-shadow(0 0 0.5vw #33E2E6);
