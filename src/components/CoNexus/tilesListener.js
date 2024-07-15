@@ -19,6 +19,9 @@ function addTilesListener(format, section) {
       tile.addEventListener('mouseout', () => {
         tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}1.png`;
       })
+      tile.addEventListener('click', () => {
+        alert('Story: ' + tile.id);
+      })
     })
   }
 }
