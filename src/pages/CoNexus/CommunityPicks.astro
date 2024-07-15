@@ -1,7 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import StoryTile from "../../components/CoNexus/storyTile.astro"
 ---
 
 <Layout title="Community Picks | CoNexus">
-  <p style="color: white">Community picks stories</p>
+  <section class="tiles-section">
+    <StoryTile storySection="CommunityPicks" storyName="Upcoming"></StoryTile>
+  </section>
 </Layout>

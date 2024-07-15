@@ -1,7 +1,24 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import StoryTile from "../../components/CoNexus/storyTile.astro"
 ---
 
 <Layout title="Dischordian Saga | CoNexus">
-  <p style="color: white">Dischordian Saga stories</p>
+  <section class="tiles-section">
+    <StoryTile storySection="DischordianSaga/General" storyName="Escape"></StoryTile>
+    <StoryTile storySection="DischordianSaga/General" storyName="Arena"></StoryTile>
+  </section>
+
+  <section class="tiles-section">
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Assassin"></StoryTile>
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Soldier"></StoryTile>
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Spy"></StoryTile>
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Engineer"></StoryTile>
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="Oracle"></StoryTile>
+    <StoryTile storySection="DischordianSaga/ClassGated" storyName="NeYon"></StoryTile>
+  </section>
+
+  <section class="tiles-section">
+    <StoryTile storySection="DischordianSaga/TraitGated" storyName="Inception Ark"></StoryTile>
+  </section>
 </Layout>

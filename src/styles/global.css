@@ -2,9 +2,19 @@ html {
   background-color: #010020;
 }
 
+
+/* CoNexus */
+
 .conexus-menu-tiles {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.tiles-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  overflow-x: auto;
 }
