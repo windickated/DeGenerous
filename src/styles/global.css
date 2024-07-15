@@ -1,0 +1,10 @@
+html {
+  background-color: #010020;
+}
+
+.conexus-menu-tiles {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}

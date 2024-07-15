@@ -3,19 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import StoryTile from "../components/storyTile.astro"
 ---
 
-<Layout>
-  <section>
-    <StoryTile storyTitle="Collabs"></StoryTile>
-    <StoryTile storyTitle="Dischordian Saga"></StoryTile>
-    <StoryTile storyTitle="Community Picks"></StoryTile>
+<Layout title="CoNexus | DeGenerous">
+  <section class="conexus-menu-tiles">
+    <StoryTile storyName="Collabs"></StoryTile>
+    <StoryTile storyName="Dischordian Saga"></StoryTile>
+    <StoryTile storyName="Community Picks"></StoryTile>
   </section>
 </Layout>
-
-<style>
-  section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-</style>
