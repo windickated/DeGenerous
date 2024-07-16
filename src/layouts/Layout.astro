@@ -14,7 +14,8 @@ const { title, header, subheading, arrow } = Astro.props
 	<body>
 
 		<section class="container">
-			<span class={arrow} />
+			{arrow && <span class="arrow" />} 
+			{!arrow && <span class="logo" />}
 			<p class="header">{ header }</p>
 			<p class="subheading">{ subheading }</p>
 		</section>
@@ -29,10 +30,10 @@ const { title, header, subheading, arrow } = Astro.props
 				line-height: 5vw;
 				text-align: center;
 				margin: 3vw auto;
-				color: rgba(51, 226, 230, 0.75);
-				text-shadow: 0 0 2vw rgba(51, 226, 230, 0.4);
+				color: rgba(51, 226, 230, 0.85);
 				-webkit-text-stroke: 0.03vw #33E2E6;
-				filter: drop-shadow(0 0 0.1vw #33E2E6);
+				text-shadow: 0 0 1vw rgba(51, 226, 230, 0.4);
+				filter: drop-shadow(0 0 2vw rgba(51, 226, 230, 0.9));
 			}
 
 			.subheading {
@@ -42,23 +43,34 @@ const { title, header, subheading, arrow } = Astro.props
 				color: rgba(51, 226, 230, 0.85);
 				padding: 0 5vw 3vw 5vw;
 				text-shadow: 0 0 1vw #010020;
+				filter: drop-shadow(0 0 1vw #010020)
+			}
+
+			span {
+				position: absolute;
+				top: 2vw;
+				left: 2vw;
+				height: 7vw;
+				width: 7vw;
+				cursor: pointer;
+				z-index: 1;
+				backdrop-filter: blur(1vw);
+				background-size: contain;
 			}
 
 			.arrow {
-				position: absolute;
-				top: 1vw;
-				left: 1vw;
-				height: 7vw;
-				width: 7vw;
 				background-image: url('/backArrow.png');
-				background-size: contain;
-				background-repeat: no-repeat;
-				cursor: pointer;
-				z-index: 1;
+				opacity: 0.7;
 			}
 
 			.arrow:hover {
 				background-image: url('/backArrowHover.png');
+				filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5));
+				opacity: 0.9;
+			}
+
+			.logo {
+				background-color: rgba(0,0,0,0.5);
 			}
 
 

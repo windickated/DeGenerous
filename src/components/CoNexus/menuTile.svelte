@@ -22,7 +22,7 @@
     height: 32vw;
     margin: 1vw;
     padding-bottom: 3%;
-    background-color: rgba(22, 30, 95, 0.5);
+    background-color: rgba(22, 30, 95, 0.75);
     color: rgba(51, 226, 230, 0.75);
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 1.5vw;

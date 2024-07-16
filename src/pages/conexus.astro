@@ -2,12 +2,13 @@
 import Layout from "../layouts/Layout.astro";
 import MenuTile from "../components/CoNexus/menuTile.svelte";
 
+const arrow = false;
 const subheading = `
 CoNexus is the gateway to a boundless multiverse with immersive and dynamic interactive Choose-Your-Adventure stories. Powered by cutting-edge artificial intelligence, CoNexus generates captivating narratives in real time, offering you an unparalleled journey into infinite and one-of-a-kind experiences.
 Within CoNexus, you will transcend the boundaries of reality as we know it.`;
 ---
 
-<Layout title="CoNexus | DeGenerous" header="CoNexus" {subheading}>
+<Layout title="CoNexus | DeGenerous" header="CoNexus" {subheading} {arrow}>
   <section class="conexus-menu-tiles">
     <MenuTile storyName="Collabs" />
     <MenuTile storyName="Dischordian Saga" />
