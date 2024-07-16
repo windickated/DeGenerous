@@ -4,14 +4,6 @@ import StoryTile from "./storyTile.svelte";
 export let storySection;
 export let storyNames;
 export let collectionTitle = undefined;
-
-let html = '';
-function renderStories() {
-  storyNames.map((name) => {
-    html += '<StoryTile {storySection} storyName={name} />';
-  })
-  return html;
-}
 </script>
 
 
