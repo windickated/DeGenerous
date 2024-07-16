@@ -51,6 +51,10 @@ table {
 
 html {
   background-color: #010020;
+  color: #dedede;
+  font-size: 1em;
+  word-spacing: 0.2em;
+  line-height: 1.4em;
 }
 
 
@@ -61,6 +65,14 @@ html {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1vw 2.5vw;
+  padding: 2vw;
+  background-color: rgba(36, 65, 189, 0.1);
+  border: 0.1vw solid rgba(51, 226, 230, 0.5);
+  border-radius: 2.5vw;
+  filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.25));
+  backdrop-filter: blur(1vw);
 }
 
 .tiles-section {
@@ -68,4 +80,5 @@ html {
   flex-direction: row;
   justify-content: flex-start;
   overflow-x: auto;
+  padding-left: 2vw;
 }

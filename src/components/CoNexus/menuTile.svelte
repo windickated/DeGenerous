@@ -18,13 +18,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 30vw;
-    height: 34vw;
+    width: 28vw;
+    height: 32vw;
     margin: 1vw;
     padding-bottom: 3%;
-    background-color: #2441BD;
-    color: #dedede;
-    border: 0.05vw solid #33E2E6;
+    background-color: rgba(22, 30, 95, 0.5);
+    color: rgba(51, 226, 230, 0.75);
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 1.5vw;
     filter: drop-shadow(0 0 0.1vw #010020);
     cursor: pointer;
@@ -32,9 +32,9 @@
   }
 
   a:hover {
-    background-color: #2D5AD8;
-    color: #33E2E6;
-    filter: drop-shadow(0 0 0.5vw #33E2E6);
+    background-color: rgba(51, 226, 230, 0.3);
+    color: #010020;
+    filter: drop-shadow(0 0 0.5vw #33e2e6);
   }
 
   .tile-picture {
@@ -43,7 +43,7 @@
     height: 80%;
     margin: 2.5%;
     margin-bottom: 0;
-    border: 0.05vw solid #33E2E6;
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 1vw;
   }
 
@@ -51,5 +51,28 @@
     font-size: 3vw;
     line-height: 3vw;
     white-space: nowrap;
+    text-shadow: 0 0 1vw #010020;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .tile {
+      width: 80vw;
+      height: 60vw;
+      flex: none;
+      margin-bottom: 3vw;
+      padding-bottom: 0;
+      border-radius: 5vw;
+    }
+
+    .tile-picture {
+      width: 90%;
+      border-radius: 4vw;
+    }
+
+    p {
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
   }
 </style>

@@ -10,14 +10,27 @@ const { title, header, subheading, arrow } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="stylesheet" href="/src/styles/global.css">
 		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	</head>
+	<body>
+
+		<section class="container">
+			<span class={arrow} />
+			<p class="header">{ header }</p>
+			<p class="subheading">{ subheading }</p>
+		</section>
+
+
+    <slot />
+
 
 		<style>
 			.header {
 				font-size: 5vw;
 				line-height: 5vw;
 				text-align: center;
-				margin: 2vw auto;
-				color: rgba(255, 255, 255, 0.75);
+				margin: 3vw auto;
+				color: rgba(51, 226, 230, 0.75);
+				text-shadow: 0 0 2vw rgba(51, 226, 230, 0.4);
 				-webkit-text-stroke: 0.03vw #33E2E6;
 				filter: drop-shadow(0 0 0.1vw #33E2E6);
 			}
@@ -25,8 +38,10 @@ const { title, header, subheading, arrow } = Astro.props
 			.subheading {
 				font-size: 2vw;
 				line-height: 2.5vw;
-				color: #bebebe;
-				padding: 0 2.5vw 1vw 2.5vw;
+				text-align: left;
+				color: rgba(51, 226, 230, 0.85);
+				padding: 0 5vw 3vw 5vw;
+				text-shadow: 0 0 1vw #010020;
 			}
 
 			.arrow {
@@ -46,20 +61,33 @@ const { title, header, subheading, arrow } = Astro.props
 				background-image: url('/backArrowHover.png');
 			}
 
-			.none {
-				display: none;
+
+			@media only screen and (max-width: 600px) {
+				.header {
+					font-size: 2em;
+					line-height: 2em;
+					margin: 0.25em auto;
+				}
+
+				.subheading {
+					font-size: inherit;
+					line-height: 1.4em;
+					padding: 1em;
+					margin: 0 1em 1em 1em;
+					text-align: center;
+					background-color: rgba(22, 30, 95, 0.5);
+					backdrop-filter: blur(2vw);
+					border: 0.1vw solid rgba(51, 226, 230, 0.5);
+    			border-radius: 2.5vw;
+				}
+
+				.arrow {
+					width: 3em;
+					height: 3em;
+					top: 1em;
+					left: 0.5em;
+				}
 			}
 		</style>
-	</head>
-	<body>
-
-		<section class="container">
-			<span class={arrow} />
-			<p class="header">{ header }</p>
-			<p class="subheading">{ subheading }</p>
-		</section>
-
-    <slot />
-
   </body>
 </html>

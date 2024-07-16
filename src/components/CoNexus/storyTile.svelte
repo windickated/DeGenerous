@@ -54,4 +54,17 @@
     line-height: 3vw;
     white-space: nowrap;
   }
+
+
+  @media only screen and (max-width: 600px) {
+    .tile {
+      width: 35vw;
+      height: 40vw;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: inherit;
+    }
+  }
 </style>
