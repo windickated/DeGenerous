@@ -1,10 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import StoryTile from "../../components/CoNexus/storyTile.svelte"
-
-const generalStories = ['Escape', 'Arena'];
-const classStories = ['Assassin', 'Soldier', 'Spy', 'Engineer', 'Oracle', 'NeYon'];
-const traitStories = ['Inception Ark'];
+import StoryCollection from "../../components/CoNexus/storyCollection.astro";
 
 const arrow = true;
 const storySection = 'DischordianSaga';
@@ -16,35 +12,17 @@ The Dischordian Saga led to the creation of CoNexus and tells the epic narrative
 
   <object class="tiles-collection">
     <p class="tiles-collection-legend">General</p>
-    <section class="tiles-section">
-      {generalStories.map((name) => (
-        <StoryTile {storySection} storyName={name} />
-      ))}
-    </section>
+      <StoryCollection {storySection} storyNames={['Escape', 'Arena']} />
   </object>
    
   <object class="tiles-collection">
     <p class="tiles-collection-legend">Class-gated</p>
-    <section class="tiles-section">
-      {classStories.map((name) => (
-        <StoryTile {storySection} storyName={name} />
-      ))}
-    </section>
+    <StoryCollection {storySection} storyNames={['Assassin', 'Soldier', 'Spy', 'Engineer', 'Oracle', 'NeYon']} />
   </object>
 
   <object class="tiles-collection">
     <p class="tiles-collection-legend">Trait-gated</p>
-    <section class="tiles-section">
-      {traitStories.map((name) => (
-        <StoryTile {storySection} storyName={name} />
-      ))}
-    </section>
+    <StoryCollection {storySection} storyNames={['Inception Ark']} />
   </object>
-
-
-  <script>
-    import addTilesListener from "../../components/CoNexus/listeners.js";
-    addTilesListener('DischordianSaga');
-  </script>
 
 </Layout>

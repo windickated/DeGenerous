@@ -24,6 +24,17 @@ const { title, header, subheading, arrow } = Astro.props
     <slot />
 
 
+		<script>
+			const icon = document.querySelector('span');
+
+			if(icon.className === 'logo') {
+				icon.addEventListener('click', () => window.open('https://degenerousdao.com/', '_blank'))
+			} else if(icon.className === 'arrow') {
+				icon.addEventListener('click', () => window.open('/CoNexus', '_self'));
+			}
+		</script>
+
+
 		<style>
 			.header {
 				font-size: 5vw;
@@ -32,7 +43,7 @@ const { title, header, subheading, arrow } = Astro.props
 				margin: 3vw auto;
 				color: rgba(51, 226, 230, 0.85);
 				-webkit-text-stroke: 0.03vw #33E2E6;
-				filter: drop-shadow(0 0 2vw rgba(51, 226, 230, 0.9));
+				filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5));
 			}
 
 			.subheading {

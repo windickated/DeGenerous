@@ -7,7 +7,7 @@
 </script>
 
 
-<div class="tile" id="{storyName}">
+<div class="tile" id="{storyName}" data-section="{storySection}">
   <img class="tile-picture" src={storyImage} alt="{storyName}"/>
   <p class="title">{ storyName }</p>
 </div>
