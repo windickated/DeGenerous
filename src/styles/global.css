@@ -104,7 +104,7 @@ html::-webkit-scrollbar {
   border: 0.1vw solid rgba(51, 226, 230, 0.5);
   border-radius: 2.5vw;
   filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.25));
-  backdrop-filter: blur(1vw);
+  backdrop-filter: blur(2vw);
 }
 
 .tiles-section::-webkit-scrollbar {
