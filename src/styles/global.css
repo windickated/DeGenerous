@@ -135,4 +135,8 @@ html::-webkit-scrollbar {
     backdrop-filter: none;
   }
 
+  .tiles-collection-legend{
+    font-size: 1.5em;
+		line-height: 1.5em;
+  }
 }
