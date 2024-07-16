@@ -1,35 +1,29 @@
----
+<script>
 import StoryTile from "./storyTile.svelte";
 
-const { storySection, storyNames, collectionTitle} = Astro.props;
----
+export let storySection;
+export let storyNames;
+export let collectionTitle = undefined;
 
-
-{collectionTitle && <p class="tiles-collection-legend">{collectionTitle}</p>}
-<section class="tiles-section">
-  {storyNames.map((name:any) => (
-    <StoryTile {storySection} storyName={name} />
-  ))}
-</section>
-
-
-<script>
-  const tiles = document.querySelectorAll('.tile');
-  const tilePictures: any = document.querySelectorAll('.tile-picture');
-
-  tiles.forEach((tile:any, i) => {
-    tile.addEventListener('mouseover', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}2.avif`;
-    })
-    tile.addEventListener('mouseout', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}1.avif`;
-    })
-    tile.addEventListener('click', () => {
-      console.log(tile.id);
-      console.log(tile.dataset.section);
-    })
+let html = '';
+function renderStories() {
+  storyNames.map((name) => {
+    html += '<StoryTile {storySection} storyName={name} />';
   })
+  return html;
+}
 </script>
+
+
+{#if collectionTitle}
+  <p class="tiles-collection-legend">{collectionTitle}</p>
+{/if}
+
+<section class="tiles-section">
+  {#each storyNames as name}
+    <StoryTile {storySection} storyName={name} />
+  {/each}
+</section>
 
 
 <style>
