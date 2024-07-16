@@ -23,9 +23,9 @@
     height: 22vw;
     margin: 1vw;
     padding-bottom: 3%;
-    background-color: #2441BD;
-    color: rgba(255, 255, 255, 0.75);
-    border: 0.05vw solid #33E2E6;
+    background-color: rgba(36, 65, 189, 0.75);
+    color: rgba(255, 255, 255, 0.6);
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 1.5vw;
     filter: drop-shadow(0 0 0.1vw #010020);
     cursor: pointer;
@@ -34,9 +34,9 @@
   }
 
   .tile:hover {
-    background-color: #2D5AD8;
-    color: #33E2E6;
-    filter: drop-shadow(0 0 0.5vw #33E2E6);
+    background-color: rgba(45, 90, 216, 0.9);
+    color: rgba(51, 226, 230, 0.9);
+    filter: drop-shadow(0 0 0.5vw rgba(51, 226, 230, 0.5));
   }
 
   .tile-picture {
@@ -45,7 +45,7 @@
     height: 80%;
     margin: 2.5%;
     margin-bottom: 0;
-    border: 0.05vw solid #33E2E6;
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 1vw;
   }
 

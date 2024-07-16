@@ -14,25 +14,34 @@ The Dischordian Saga led to the creation of CoNexus and tells the epic narrative
 
 <Layout title="Dischordian Saga | CoNexus" header="Dischordian Saga" {subheading} {arrow}>
 
-  <section class="tiles-section">
-    {generalStories.map((name) => (
-      <StoryTile {storySection} storyName={name} />
-    ))}
-  </section>
+  <object class="tiles-collection">
+    <p class="tiles-collection-legend">General</p>
+    <section class="tiles-section">
+      {generalStories.map((name) => (
+        <StoryTile {storySection} storyName={name} />
+      ))}
+    </section>
+  </object>
+   
+  <object class="tiles-collection">
+    <p class="tiles-collection-legend">Class-gated</p>
+    <section class="tiles-section">
+      {classStories.map((name) => (
+        <StoryTile {storySection} storyName={name} />
+      ))}
+    </section>
+  </object>
 
-  <section class="tiles-section">
-    {classStories.map((name) => (
-      <StoryTile {storySection} storyName={name} />
-    ))}
-  </section>
+  <object class="tiles-collection">
+    <p class="tiles-collection-legend">Trait-gated</p>
+    <section class="tiles-section">
+      {traitStories.map((name) => (
+        <StoryTile {storySection} storyName={name} />
+      ))}
+    </section>
+  </object>
 
-  <section class="tiles-section">
-    {traitStories.map((name) => (
-      <StoryTile {storySection} storyName={name} />
-    ))}
-  </section>
 
-  
   <script>
     import addTilesListener from "../../components/CoNexus/listeners.js";
     addTilesListener('DischordianSaga');
