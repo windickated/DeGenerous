@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import StoryCollection from "../../components/CoNexus/storyCollection.svelte";
+import StoryCollection from "../../components/CoNexus/storyCollection.astro";
 
 const arrow = true;
 const storySection = 'Collabs';
@@ -10,8 +10,6 @@ Collabs are stories that are custom-written to add depth to the partners of DeGe
 
 <Layout title="Collabs | CoNexus" header="Collabs" {subheading} {arrow}>
 
-<object class="tiles-collection">
   <StoryCollection {storySection} storyNames={['GLMR Apes']} />
-</object>
 
 </Layout>

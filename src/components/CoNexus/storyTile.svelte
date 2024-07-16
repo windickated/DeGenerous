@@ -7,6 +7,10 @@
 </script>
 
 
+
+<div class="description-tile" id="{storyName}-description"></div>
+
+
 <div class="tile" id="{storyName}" data-section="{storySection}">
   <img class="tile-picture" src={storyImage} alt="{storyName}"/>
   <p class="title">{ storyName }</p>
@@ -14,6 +18,20 @@
 
 
 <style>
+  .description-tile {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99.8%;
+    height: 100%;
+    background-color: rgba(1, 0, 32, 0.75);
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
+    border-radius: 2.5vw;
+    backdrop-filter: blur(1vw);
+  }
+
   .tile {
     display: flex;
     flex-direction: column;

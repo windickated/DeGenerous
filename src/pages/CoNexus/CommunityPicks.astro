@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import StoryCollection from "../../components/CoNexus/storyCollection.svelte";
+import StoryCollection from "../../components/CoNexus/storyCollection.astro";
 
 const arrow = true;
 const storySection = 'CommunityPicks';
@@ -10,8 +10,6 @@ Community Picks are stories that aren't bound to any project or genre but have b
 
 <Layout title="Community Picks | CoNexus" header="Community Picks" {subheading} {arrow}>
 
-  <object class="tiles-collection">
-    <StoryCollection {storySection} storyNames={['Upcoming']} />
-  </object>
+  <StoryCollection {storySection} storyNames={['Upcoming']} />
 
 </Layout>

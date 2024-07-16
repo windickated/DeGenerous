@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import StoryCollection from "../../components/CoNexus/storyCollection.svelte";
+import StoryCollection from "../../components/CoNexus/storyCollection.astro";
 
 const arrow = true;
 const storySection = 'DischordianSaga';
@@ -10,16 +10,10 @@ The Dischordian Saga led to the creation of CoNexus and tells the epic narrative
 
 <Layout title="Dischordian Saga | CoNexus" header="Dischordian Saga" {subheading} {arrow}>
 
-  <object class="tiles-collection">
-    <StoryCollection {storySection} storyNames={['Escape', 'Arena']} collectionTitle="General" />
-  </object>
+  <StoryCollection {storySection} storyNames={['Escape', 'Arena']} collectionTitle="General" />
    
-  <object class="tiles-collection">
-    <StoryCollection {storySection} storyNames={['Assassin', 'Soldier', 'Spy', 'Engineer', 'Oracle', 'NeYon']} collectionTitle="Class-gated" />
-  </object>
+  <StoryCollection {storySection} storyNames={['Assassin', 'Soldier', 'Spy', 'Engineer', 'Oracle', 'NeYon']} collectionTitle="Class-gated" />
 
-  <object class="tiles-collection">
-    <StoryCollection {storySection} storyNames={['Inception Ark']} collectionTitle="Trait-gated" />
-  </object>
+  <StoryCollection {storySection} storyNames={['Inception Ark']} collectionTitle="Trait-gated" />
 
 </Layout>
