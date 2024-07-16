@@ -3,7 +3,7 @@
   export let storyName;
   const storyLink = storyName.replace(/\s+/g, '');
 
-  const storyImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}1.png`;
+  const storyImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}1.avif`;
 </script>
 
 

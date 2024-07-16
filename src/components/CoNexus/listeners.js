@@ -4,10 +4,10 @@ function addTilesListener(section) {
 
     tiles.forEach((tile, i) => {
       tile.addEventListener('mouseover', () => {
-        tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}2.png`;
+        tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}2.avif`;
       })
       tile.addEventListener('mouseout', () => {
-        tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}1.png`;
+        tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}1.avif`;
       })
       tile.addEventListener('click', () => {
         alert('Story: ' + tile.id);
