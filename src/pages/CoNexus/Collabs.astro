@@ -2,18 +2,26 @@
 import Layout from "../../layouts/Layout.astro";
 import StoryTile from "../../components/CoNexus/storyTile.svelte"
 
+const collabsStories = ['GLMR Apes'];
+
 const arrow = true;
+const storySection = 'Collabs';
 const subheading = `
 Collabs are stories that are custom-written to add depth to the partners of DeGenerous DAO.`;
 ---
 
 <Layout title="Collabs | CoNexus" header="Collabs" {subheading} {arrow}>
+
   <section class="tiles-section">
-    <StoryTile storySection="Collabs" storyName="GLMR Apes" />
+    {collabsStories.map((name) => (
+      <StoryTile {storySection} storyName={name} />
+    ))}
   </section>
+
 
   <script>
     import addTilesListener from "../../components/CoNexus/listeners.js";
     addTilesListener('Collabs');
   </script>
+  
 </Layout>

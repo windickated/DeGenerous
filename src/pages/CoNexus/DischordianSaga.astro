@@ -2,32 +2,40 @@
 import Layout from "../../layouts/Layout.astro";
 import StoryTile from "../../components/CoNexus/storyTile.svelte"
 
+const generalStories = ['Escape', 'Arena'];
+const classStories = ['Assassin', 'Soldier', 'Spy', 'Engineer', 'Oracle', 'NeYon'];
+const traitStories = ['Inception Ark'];
+
 const arrow = true;
+const storySection = 'DischordianSaga';
 const subheading = `
 The Dischordian Saga led to the creation of CoNexus and tells the epic narrative of wars between Artificial Intelligence and Humanity. Its story nodes, voted on by the Potentials NFT holders, evolve the lore and activate a new story within CoNexus each week.`;
 ---
 
 <Layout title="Dischordian Saga | CoNexus" header="Dischordian Saga" {subheading} {arrow}>
+
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga" storyName="Escape" />
-    <StoryTile storySection="DischordianSaga" storyName="Arena" />
+    {generalStories.map((name) => (
+      <StoryTile {storySection} storyName={name} />
+    ))}
   </section>
 
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga" storyName="Assassin" />
-    <StoryTile storySection="DischordianSaga" storyName="Soldier" />
-    <StoryTile storySection="DischordianSaga" storyName="Spy" />
-    <StoryTile storySection="DischordianSaga" storyName="Engineer" />
-    <StoryTile storySection="DischordianSaga" storyName="Oracle" />
-    <StoryTile storySection="DischordianSaga" storyName="NeYon" />
+    {classStories.map((name) => (
+      <StoryTile {storySection} storyName={name} />
+    ))}
   </section>
 
   <section class="tiles-section">
-    <StoryTile storySection="DischordianSaga" storyName="Inception Ark" />
+    {traitStories.map((name) => (
+      <StoryTile {storySection} storyName={name} />
+    ))}
   </section>
 
+  
   <script>
     import addTilesListener from "../../components/CoNexus/listeners.js";
     addTilesListener('DischordianSaga');
   </script>
+
 </Layout>
