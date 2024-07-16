@@ -100,7 +100,7 @@ html::-webkit-scrollbar {
   overflow-x: auto;
   margin: 1vw 2.5vw;
   padding: 2vw;
-  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(51, 226, 230, 0.15));
+  background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(51, 226, 230, 0.1));
   border: 0.1vw solid rgba(51, 226, 230, 0.5);
   border-radius: 2.5vw;
   filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.25));
