@@ -84,16 +84,6 @@ html::-webkit-scrollbar {
   backdrop-filter: blur(1vw);
 }
 
-.tiles-collection-legend {
-  font-size: 3vw;
-	line-height: 3vw;
-  padding-left: 7vw;
-  margin: 2vw auto 0 auto;
-  color: rgba(51, 226, 230, 0.85);
-  -webkit-text-stroke: 0.03vw #33E2E6;
-  text-shadow: 0 0 1vw rgba(51, 226, 230, 0.4);
-}
-
 
 
 /* Responsive section */
@@ -107,10 +97,5 @@ html::-webkit-scrollbar {
     border: none;
     filter: none;
     backdrop-filter: none;
-  }
-
-  .tiles-collection-legend{
-    font-size: 1.5em;
-		line-height: 1.5em;
   }
 }

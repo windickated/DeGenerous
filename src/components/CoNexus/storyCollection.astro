@@ -1,10 +1,11 @@
 ---
 import StoryTile from "./storyTile.svelte";
 
-const { storySection, storyNames} = Astro.props;
+const { storySection, storyNames, collectionTitle} = Astro.props;
 ---
 
 
+{collectionTitle && <p class="tiles-collection-legend">{collectionTitle}</p>}
 <section class="tiles-section">
   {storyNames.map((name:any) => (
     <StoryTile {storySection} storyName={name} />
@@ -57,5 +58,24 @@ const { storySection, storyNames} = Astro.props;
   .tiles-section::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(51, 226, 230, 0.5), rgba(0, 0, 0, 0));
     border-radius: 0.5vw;
+  }
+
+  .tiles-collection-legend {
+    font-size: 3vw;
+    line-height: 3vw;
+    padding-left: 7vw;
+    margin: 2vw auto 0 auto;
+    color: rgba(51, 226, 230, 0.85);
+    -webkit-text-stroke: 0.03vw #33E2E6;
+    text-shadow: 0 0 1vw rgba(51, 226, 230, 0.4);
+  }
+
+
+  @media only screen and (max-width: 600px) {
+
+    .tiles-collection-legend{
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
   }
 </style>
