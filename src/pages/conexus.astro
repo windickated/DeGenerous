@@ -15,7 +15,16 @@ Within CoNexus, you will transcend the boundaries of reality as we know it.`;
   </section>
 
   <script>
-    import addTilesListener from "../components/CoNexus/listeners.js";
-    addTilesListener('menu');
+    const tiles = document.querySelectorAll('.tile');
+    const tilePictures: any = document.querySelectorAll('.tile-picture');
+
+    tiles.forEach((tile, i) => {
+      tile.addEventListener('mouseover', () => {
+        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.png`;
+      })
+      tile.addEventListener('mouseout', () => {
+        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.png`;
+      })
+    })
   </script>
 </Layout>

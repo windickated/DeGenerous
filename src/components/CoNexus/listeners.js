@@ -1,17 +1,7 @@
-function addTilesListener(format, section) {
+function addTilesListener(section) {
   const tiles = document.querySelectorAll('.tile');
   const tilePictures = document.querySelectorAll('.tile-picture');
 
-  if(format === 'menu') {
-    tiles.forEach((tile, i) => {
-      tile.addEventListener('mouseover', () => {
-        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.png`;
-      })
-      tile.addEventListener('mouseout', () => {
-        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.png`;
-      })
-    })
-  } else if(format === 'story') {
     tiles.forEach((tile, i) => {
       tile.addEventListener('mouseover', () => {
         tilePictures[i].src = `/conexusAssets/titlePicture/${section}/${tile.id.replace(/\s+/g, '')}2.png`;
@@ -24,10 +14,8 @@ function addTilesListener(format, section) {
       })
     })
 
-    // Back arrow is active everywhere except the Menu
     const backArrow = document.querySelector('.arrow');
 		backArrow.addEventListener('click', () => window.open('/CoNexus', '_self'));
-  }
 }
 
 export default addTilesListener;
