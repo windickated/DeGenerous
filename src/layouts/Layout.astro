@@ -54,7 +54,6 @@ const { title, header, subheading, arrow } = Astro.props
 				width: 7vw;
 				cursor: pointer;
 				z-index: 1;
-				backdrop-filter: blur(1vw);
 				background-size: contain;
 			}
 
@@ -70,7 +69,12 @@ const { title, header, subheading, arrow } = Astro.props
 			}
 
 			.logo {
-				background-color: rgba(0,0,0,0.5);
+				background-image: url('/logo.png');
+				opacity: 0.7;
+			}
+
+			.logo:hover {
+				opacity: 0.9;
 			}
 
 

@@ -27,5 +27,10 @@ Within CoNexus, you will transcend the boundaries of reality as we know it.`;
         tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.png`;
       })
     })
+
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('click', () => {
+      window.open('https://degenerousdao.com/', '_blank');
+    })
   </script>
 </Layout>
