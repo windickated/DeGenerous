@@ -24,7 +24,7 @@
     margin: 1vw;
     padding-bottom: 3%;
     background-color: #2441BD;
-    color: #dedede;
+    color: rgba(255, 255, 255, 0.75);
     border: 0.05vw solid #33E2E6;
     border-radius: 1.5vw;
     filter: drop-shadow(0 0 0.1vw #010020);
@@ -33,13 +33,13 @@
     flex: none;
   }
 
-  div:hover {
+  .tile:hover {
     background-color: #2D5AD8;
     color: #33E2E6;
     filter: drop-shadow(0 0 0.5vw #33E2E6);
   }
 
-  img {
+  .tile-picture {
     object-fit: cover;
     width: 95%;
     height: 80%;
@@ -49,10 +49,11 @@
     border-radius: 1vw;
   }
 
-  p {
+  .title {
     font-size: 3vw;
-    line-height: 3vw;
+    line-height: 1vw;
     white-space: nowrap;
+    text-shadow: 0 0 1vw rgba(1, 0, 32, 0.4);
   }
 
 
@@ -62,7 +63,7 @@
       height: 40vw;
     }
 
-    p {
+    .title {
       font-size: 1.2em;
       line-height: inherit;
     }

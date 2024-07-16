@@ -31,7 +31,7 @@
     text-decoration: none;
   }
 
-  a:hover {
+  .tile:hover {
     background-color: rgba(51, 226, 230, 0.3);
     color: #010020;
     filter: drop-shadow(0 0 0.5vw #33e2e6);
@@ -47,7 +47,7 @@
     border-radius: 1vw;
   }
 
-  p {
+  .title {
     font-size: 3vw;
     line-height: 3vw;
     white-space: nowrap;
@@ -70,7 +70,7 @@
       border-radius: 4vw;
     }
 
-    p {
+    .title {
       font-size: 1.5em;
       line-height: 1.5em;
     }
