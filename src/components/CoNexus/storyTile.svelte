@@ -19,8 +19,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 24vw;
-    height: 28vw;
+    width: 20vw;
+    height: 22vw;
     margin: 1vw;
     padding-bottom: 3%;
     background-color: #2441BD;
