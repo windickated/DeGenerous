@@ -2,19 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 import MenuTile from "../components/CoNexus/menuTile.svelte";
 
-const arrow = false;
 const subheading = `
-CoNexus is the gateway to a boundless multiverse with immersive and dynamic interactive Choose-Your-Adventure stories. Powered by cutting-edge artificial intelligence, CoNexus generates captivating narratives in real time, offering you an unparalleled journey into infinite and one-of-a-kind experiences.
-Within CoNexus, you will transcend the boundaries of reality as we know it.`;
+CoNexus is the gateway to a boundless multiverse with immersive and dynamic interactive Choose-Your-Adventure stories. Powered by cutting-edge artificial intelligence, CoNexus generates captivating narratives in real time, offering you an unparalleled journey into infinite and one-of-a-kind experiences.`
+
+const footerText = ['The AI swiftly adapts to your decision between each step and generates a new story text, set of options, and picture in real-time.', 'This live factor ensures that nobody can predict or manipulate the games, and endless unique possibilities exist.', 'Your choices and actions will shape the course of your unique narrative.']
+
+const arrow = false;
+const menuText = ['A new world with no limits awaits you.', 'Within CoNexus, you will transcend the boundaries of reality as we know it.'];
 ---
+
 
 <Layout title="CoNexus | DeGenerous" header="CoNexus" {subheading} {arrow}>
 
   <section class="conexus-menu-tiles">
+    <p class="menu-text-0">{menuText[0]}</p>
+
     <MenuTile storyName="Collabs" />
     <MenuTile storyName="Dischordian Saga" />
     <MenuTile storyName="Community Picks" />
+
+    <p class="menu-text-1">{menuText[1]}</p>
   </section>
+
+  {footerText.map((text) => (
+    <p class="footer-text">{text}</p>
+  ))}
 
 
   <script>
@@ -30,5 +42,66 @@ Within CoNexus, you will transcend the boundaries of reality as we know it.`;
       })
     })
   </script>
+
+
+  <style>
+    html {
+      background-attachment: scroll;
+      padding-bottom: 7.5vw;
+    }
+
+    .conexus-menu-tiles {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 1vw 2.5vw;
+      margin-bottom: 3vw;
+      padding: 2vw;
+      background-color: rgba(1, 0, 32, 0.75);
+      border: 0.1vw solid rgba(51, 226, 230, 0.5);
+      border-radius: 2.5vw;
+      filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.25));
+      backdrop-filter: blur(1vw);
+    }
+
+    .menu-text-0, .menu-text-1 {
+      text-align: center;
+      font-size: 2.5vw;
+      line-height: 2.5vw;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .menu-text-0 {
+      margin: 1vw 10vw;
+      margin-bottom: 3vw;
+    }
+
+    .menu-text-1 {
+      margin: 1vw;
+      margin-top: 3vw;
+    }
+
+    .footer-text {
+				font-size: 2vw;
+				line-height: 2.5vw;
+				text-align: center;
+				color: rgba(51, 226, 230, 0.85);
+				padding: 1vw 5vw;
+				text-shadow: 0 0 1vw #010020;
+				filter: drop-shadow(0 0 1vw #010020)
+			}
+    
+    @media only screen and (max-width: 600px) {
+
+      .conexus-menu-tiles {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        filter: none;
+        backdrop-filter: none;
+      }
+    }
+  </style>
 
 </Layout>

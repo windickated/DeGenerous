@@ -66,37 +66,3 @@ html {
 html::-webkit-scrollbar {
   width: 0px;
 }
-
-
-/* CoNexus */
-
-.conexus-menu-tiles {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 1vw 2.5vw;
-  padding: 2vw;
-  background-color: rgba(1, 0, 32, 0.75);
-  border: 0.1vw solid rgba(51, 226, 230, 0.5);
-  border-radius: 2.5vw;
-  filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.25));
-  backdrop-filter: blur(1vw);
-}
-
-
-
-/* Responsive section */
-
-@media only screen and (max-width: 600px) {
-
-  /* CoNexus */
-
-  .conexus-menu-tiles {
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    filter: none;
-    backdrop-filter: none;
-  }
-}
