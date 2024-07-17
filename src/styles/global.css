@@ -57,12 +57,14 @@ html {
   background-position: center;
   background-size: cover;
   background-color: #010020;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "PT Serif Caption", serif;
   color: #dedede;
   font-size: 1em;
   word-spacing: 0.2em;
   line-height: 1.4em;
   padding-bottom: 7.5vw;
-  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {

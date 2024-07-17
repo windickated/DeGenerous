@@ -8,7 +8,7 @@ const { storySection, storyNames, collectionTitle } = Astro.props;
 {collectionTitle && <p class="tiles-collection-legend">{collectionTitle}</p>}
 
 <section class="tiles-collection">
-  {storyNames.map((name) => (
+  {storyNames.map((name:any) => (
     <StoryTile {storySection} storyName={name} />
   ))}
 </section>
@@ -18,8 +18,7 @@ const { storySection, storyNames, collectionTitle } = Astro.props;
   import getDescription from "./storyDescription.js"
 
   const tiles = document.querySelectorAll('.tile');
-  const tilePictures: any = document.querySelectorAll('.tile-picture');
-  let tileDescription = undefined;
+  const tilePictures:any = document.querySelectorAll('.tile-picture');
 
   // Adding event listeners to story tiles
   tiles.forEach((tile:any, i) => {
@@ -32,17 +31,33 @@ const { storySection, storyNames, collectionTitle } = Astro.props;
     tile.addEventListener('click', () => {
       console.log(tile.id);
       console.log(tile.dataset.section);
-
-      // Pop up description tile with own event listeners
-      tileDescription = document.getElementById(`${tile.id}-description`);
-      tileDescription.style.display = 'block';
       console.log(getDescription(tile.id));
-      tileDescription.addEventListener('click', () => {
-        tileDescription.style.display = 'none';
-        tileDescription.removeEventListener('click', () => {});
-      })
+
+      descriptionTile(tile);
     })
   })
+
+  // Pop up description tile with event listeners
+  let tileDescription = undefined;
+  let descriptionText = undefined;
+  let playButton = undefined;
+  function descriptionTile(tile:any) {
+    if(tileDescription) {
+      tileDescription.style.display = 'none';
+      playButton.removeEventListener('click', () => {});
+    }
+
+    tileDescription = document.getElementById(`${tile.id}-description`);
+    playButton = document.getElementById(`${tile.id}-button`);
+    descriptionText = document.getElementById(`${tile.id}-text`);
+
+    tileDescription.style.display = 'block';
+    descriptionText.innerHTML = getDescription(tile.id);
+    playButton.addEventListener('click', () => {
+      tileDescription.style.display = 'none';
+      playButton.removeEventListener('click', () => {});
+    })
+  }
 </script>
 
 

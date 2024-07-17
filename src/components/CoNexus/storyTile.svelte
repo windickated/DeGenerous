@@ -8,7 +8,11 @@
 
 
 
-<div class="description-tile" id="{storyName}-description"></div>
+<div class="description-tile" id="{storyName}-description">
+  <img class="description-image" alt="Story description" src={storyImage} />
+  <p class="description-text" id="{storyName}-text"></p>
+  <button class="play-button" id="{storyName}-button">PLAY NOW</button>
+</div>
 
 
 <div class="tile" id="{storyName}" data-section="{storySection}">
@@ -30,6 +34,46 @@
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 2.5vw;
     backdrop-filter: blur(1vw);
+  }
+
+  .description-image {
+    position: absolute;
+    width: 30%;
+    left: 1%;
+    bottom: 4%;
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
+    border-radius: 2vw;
+  }
+
+  .description-text {
+    font-size: 2vw;
+    line-height: 3vw;
+    height: 63%;
+    margin: 3% 2% 20% 33%;
+    overflow-y: scroll;
+    color: rgba(51, 226, 230, 0.9);
+  }
+
+  .play-button {
+    position: absolute;
+    width: 30%;
+    height: 15%;
+    right: 1%;
+    bottom: 4%;
+    border: 0.05vw solid rgba(51, 226, 230, 0.75);
+    border-radius: 2vw;
+    font-size: 2.5vw;
+    line-height: 2.5vw;
+    color: rgba(51, 226, 230, 0.75);
+    background-color: rgba(51, 226, 230, 0.1);
+    filter: drop-shadow(0 0 0.1vw rgba(51, 226, 230, 0.4));
+    cursor: pointer;
+  }
+
+  .play-button:hover {
+    color: rgba(51, 226, 230, 1);
+    background-color: rgba(51, 226, 230, 0.5);
+    filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.4));
   }
 
   .tile {
