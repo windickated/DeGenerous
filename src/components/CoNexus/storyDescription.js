@@ -113,6 +113,7 @@ function allTilesVisible() {
   for(let i in tileCollectionList) {
     if(tileCollectionList[i].className === 'tiles-collection') {
       tileCollectionList[i].style.height = 'auto';
+      tileCollectionList[i].style.overflowX = 'auto';
       tileCollection[i] = tileCollectionList[i].querySelectorAll('.tile');
       tileCollection[i].forEach((t) => {
         t.style.display = 'flex';
