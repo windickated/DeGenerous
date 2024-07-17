@@ -25,9 +25,9 @@
   .description-tile {
     display: none;
     z-index: 1;
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     width: 99.8%;
     height: 100%;
     background-color: rgba(1, 0, 32, 0.75);
@@ -38,31 +38,31 @@
 
   .description-image {
     position: absolute;
-    width: 30%;
-    left: 1%;
-    bottom: 4%;
+    height: 90%;
+    left: 2.5%;
+    bottom: 5%;
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 2vw;
   }
 
   .description-text {
-    font-size: 2vw;
-    line-height: 3vw;
-    height: 63%;
-    margin: 3% 2% 20% 33%;
+    font-size: 2.5vw;
+    line-height: 4vw;
+    height: 70%;
+    margin: 2.5% 2.5% 20% 47%;
     overflow-y: scroll;
     color: rgba(51, 226, 230, 0.9);
   }
 
   .play-button {
     position: absolute;
-    width: 30%;
-    height: 15%;
-    right: 1%;
-    bottom: 4%;
+    width: 40%;
+    height: 12%;
+    right: 2.5%;
+    bottom: 5%;
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 2vw;
-    font-size: 2.5vw;
+    font-size: 3vw;
     line-height: 2.5vw;
     color: rgba(51, 226, 230, 0.75);
     background-color: rgba(51, 226, 230, 0.1);

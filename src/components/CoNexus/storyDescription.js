@@ -50,4 +50,75 @@ function getDescription(name) {
   }
 }
 
-export default getDescription;
+
+const tileCollectionList = document.querySelectorAll('[data-stories]');
+let tileCollection = [];
+let tileDescription = undefined;
+let descriptionText = undefined;
+let playButton = undefined;
+
+function descriptionTile(tile) {
+  allTilesVisible();
+
+  if(tileDescription) {
+    tileDescription.style.display = 'none';
+    playButton.removeEventListener('click', () => {});
+  }
+
+  tileDescription = document.getElementById(`${tile.id}-description`);
+  playButton = document.getElementById(`${tile.id}-button`);
+  descriptionText = document.getElementById(`${tile.id}-text`);
+
+  tileDescription.style.display = 'block';
+  descriptionText.innerHTML = getDescription(tile.id);
+  hideTiles(tile, true);
+  playButton.addEventListener('click', () => {
+    hideTiles(tile, false);
+    tileDescription.style.display = 'none';
+    playButton.removeEventListener('click', () => {});
+  })
+}
+
+function hideTiles(tile, visible) {
+  let visibilityValue;
+  let heightValue;
+  let overflowValue;
+
+  if(!visible) {
+    visibilityValue = 'flex';
+    heightValue = 'auto';
+    overflowValue = 'auto';
+  } else {
+    visibilityValue = 'none';
+    heightValue = '40vw';
+    overflowValue = 'hidden';
+  }
+  for(let i in tileCollectionList) {
+    tileCollectionList[i];
+    if(tileCollectionList[i].className === 'tiles-collection') {
+      if(tileCollectionList[i].dataset.stories.match(tile.id)) {
+        tileCollectionList[i].style.height = heightValue;
+        tileCollectionList[i].style.overflowX = overflowValue;
+        tileCollection[i] = tileCollectionList[i].querySelectorAll('.tile');
+        tileCollection[i].forEach((t) => {
+          t.style.display = visibilityValue;
+        })
+        break;
+      }
+    }
+  }
+}
+
+function allTilesVisible() {
+  for(let i in tileCollectionList) {
+    if(tileCollectionList[i].className === 'tiles-collection') {
+      tileCollectionList[i].style.height = 'auto';
+      tileCollection[i] = tileCollectionList[i].querySelectorAll('.tile');
+      tileCollection[i].forEach((t) => {
+        t.style.display = 'flex';
+      })
+    }
+  }
+}
+
+export default descriptionTile;
