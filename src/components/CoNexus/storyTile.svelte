@@ -45,7 +45,7 @@
     bottom: 5%;
     /*border: 0.05vw solid rgba(51, 226, 230, 0.75);*/
     border-radius: 2vw;
-    filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5))
+    filter: drop-shadow(0 0 0.5vw rgba(51, 226, 230, 0.75))
   }
 
   .description-text {
