@@ -117,7 +117,7 @@
   }
 
   .user-profile {
-    display: none;
+    /*display: none;*/
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -180,7 +180,7 @@
     text-align: center;
   }
 
-  .refferal-codes{
+  .refferal-codes {
     width: 40vw;
     padding: 1vw 2vw;
     display: flex;
@@ -232,6 +232,36 @@
       height: 3em;
       top: 1em;
       right: 0.5em;
+    }
+
+    .user-profile {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding-top: 5%;
+      border-radius: 0;
+      background-color: rgba(1, 0, 32, 0.85);
+    }
+
+    button {
+      font-size: 1.4em;
+      line-height: 1.4em;
+      padding: 0.25em 1em;
+    }
+
+    .user-prop, .user-prop-value, .refferal-codes-legend {
+      font-size: 1.2em;
+      line-height: 2.5em;
+    }
+
+    .refferal-codes {
+      width: 85vw;
+    }
+
+    .ref-code {
+      font-size: inherit;
+      line-height: 2.5em;
     }
   }
 </style>
