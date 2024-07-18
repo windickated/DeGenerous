@@ -1,4 +1,6 @@
 ---
+import Profile from "../components/CoNexus/profile.svelte";
+
 const { title, header, subheading, arrow } = Astro.props
 ---
 
@@ -17,8 +19,9 @@ const { title, header, subheading, arrow } = Astro.props
 			{arrow && <span class="arrow" />} 
 			{!arrow && <span class="logo" />}
 			<p class="header">{ header }</p>
-			<p class="subheading">{ subheading }</p>
+			<Profile />
 		</section>
+		<p class="subheading">{ subheading }</p>
 
 
     <slot />
@@ -88,9 +91,23 @@ const { title, header, subheading, arrow } = Astro.props
 
 
 			@media only screen and (max-width: 600px) {
+				html {
+					padding-top: 25%;
+				}
+
+				.container {
+					position: fixed;
+					top: 0;
+					width: 100vw;
+					background-color: rgba(1, 0, 32, 0.75);
+					filter: drop-shadow(0 1vw 1vw rgba(1, 0, 32, 0.75));
+					backdrop-filter: blur(2vw);
+					z-index: 2;
+				}
+
 				.header {
-					font-size: 2em;
-					line-height: 2em;
+					font-size: 1.5em;
+					line-height: 3em;
 					margin: 0.25em auto;
 				}
 
