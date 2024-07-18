@@ -1,73 +1,13 @@
 <script>
-  const user = {
-    id: 1,
-    mail: "testuser@gmail.com",
-    password: "12345678",
-    first_name: "Joe",
-    last_name: "Smith",
-    role: "user"
-  }
-
-  const someDate = new Date();
-  const codes = [
-    {
-      code: "5b70d9e4b08a0e29",
-      is_used: false,
-      updated_at: someDate
-    },
-    {
-      code: "698fd356259462f0",
-      is_used: true,
-      updated_at: someDate
-    },
-    {
-      code: "d28f37d717646b61",
-      is_used: false,
-      updated_at: someDate
-    },
-    {
-      code: "46986af6d8d56470",
-      is_used: false,
-      updated_at: someDate
-    },
-    {
-      code: "580777e35ba7a5b4",
-      is_used: false,
-      updated_at: someDate
-    },
-    {
-      code: "e242cbc2a388a1d5",
-      is_used: true,
-      updated_at: someDate
-    },
-    {
-      code: "b7ffcdd80bd08e21",
-      is_used: true,
-      updated_at: someDate
-    },
-    {
-      code: "96b6b6c5f563f25f",
-      is_used: true,
-      updated_at: someDate
-    },
-    {
-      code: "a1bbb2eb423d9f98",
-      is_used: false,
-      updated_at: someDate
-    },
-    {
-      code: "f9db805d44031dc0",
-      is_used: true,
-      updated_at: someDate
-    }
-  ]
+  export let user;
+  export let codes;
 </script>
 
 
 <div class="profile-container">
   <span class="profile-icon" />
 
-  <section class="user-profile" tabindex="-1">
+  <section class="user-profile">
     <div class="log-in">
       <button class="close-button">Close</button>
       <button class="login-button">Log out</button>
@@ -105,7 +45,6 @@
         <p class="ref-code used-{code.is_used}">{code.code}</p>
       {/each}
     </div>
-
   </section>
 </div>
 
@@ -117,7 +56,7 @@
   }
 
   .user-profile {
-    /*display: none;*/
+    display: none;
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -227,11 +166,8 @@
 
 
   @media only screen and (max-width: 600px) {
-    .profile-icon {
-      width: 3em;
-      height: 3em;
-      top: 1em;
-      right: 0.5em;
+    hr {
+      margin: 1em 0;
     }
 
     .user-profile {
@@ -262,6 +198,13 @@
     .ref-code {
       font-size: inherit;
       line-height: 2.5em;
+    }
+
+    .profile-icon {
+      width: 3em;
+      height: 3em;
+      top: 1em;
+      right: 0.5em;
     }
   }
 </style>

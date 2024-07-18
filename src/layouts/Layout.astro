@@ -1,5 +1,6 @@
 ---
 import Profile from "../components/CoNexus/profile.svelte";
+import { user, codes } from "../userData.js"
 
 const { title, header, subheading, arrow } = Astro.props;
 ---
@@ -20,7 +21,7 @@ const { title, header, subheading, arrow } = Astro.props;
 			{arrow && <span class="icon arrow" />} 
 			{!arrow && <span class="icon logo" />}
 			<p class="header">{ header }</p>
-			<Profile />
+			<Profile {user} {codes} />
 		</section>
 		<p class="subheading">{ subheading }</p>
 
