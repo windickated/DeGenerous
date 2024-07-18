@@ -70,3 +70,7 @@ html {
 html::-webkit-scrollbar {
   width: 0px;
 }
+
+button {
+  cursor: pointer;
+}

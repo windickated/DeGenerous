@@ -43,7 +43,6 @@
     height: 90%;
     left: 2.5%;
     bottom: 5%;
-    /*border: 0.05vw solid rgba(51, 226, 230, 0.75);*/
     border-radius: 2vw;
     filter: drop-shadow(0 0 0.5vw rgba(51, 226, 230, 0.75))
   }
@@ -68,7 +67,6 @@
     color: rgba(51, 226, 230, 0.75);
     background-color: rgba(51, 226, 230, 0.1);
     filter: drop-shadow(0 0 0.1vw rgba(51, 226, 230, 0.4));
-    cursor: pointer;
   }
 
   .play-button {
