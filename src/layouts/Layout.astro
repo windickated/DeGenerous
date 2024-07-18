@@ -21,7 +21,7 @@ const { title, header, subheading, arrow } = Astro.props;
 			{arrow && <span class="icon arrow" />} 
 			{!arrow && <span class="icon logo" />}
 			<p class="header">{ header }</p>
-			<Profile {user} {codes} />
+			<Profile {user} {codes} client:load />
 		</section>
 		<p class="subheading">{ subheading }</p>
 
