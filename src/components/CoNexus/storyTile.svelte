@@ -11,6 +11,7 @@
 <div class="description-tile" id="{storyName}-description">
   <img class="description-image" alt="Story description" src={storyImage} />
   <p class="description-text" id="{storyName}-text"></p>
+  <button class="close-button" id="{storyName}-close">CLOSE</button>
   <button class="play-button" id="{storyName}-button">PLAY NOW</button>
 </div>
 
@@ -54,23 +55,31 @@
     color: rgba(51, 226, 230, 0.9);
   }
 
-  .play-button {
+  .play-button, .close-button {
     position: absolute;
-    width: 40%;
     height: 12%;
-    right: 2.5%;
     bottom: 5%;
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 2vw;
-    font-size: 3vw;
-    line-height: 2.5vw;
+    font-size: 2.8vw;
+    line-height: 3vw;
     color: rgba(51, 226, 230, 0.75);
     background-color: rgba(51, 226, 230, 0.1);
     filter: drop-shadow(0 0 0.1vw rgba(51, 226, 230, 0.4));
     cursor: pointer;
   }
 
-  .play-button:hover {
+  .play-button {
+    width: 30%;
+    right: 2.5%;
+  }
+
+  .close-button {
+    width: 18%;
+    right: 35%;
+  }
+
+  .play-button:hover, .close-button:hover {
     color: rgba(51, 226, 230, 1);
     background-color: rgba(51, 226, 230, 0.5);
     filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.4));
@@ -120,6 +129,42 @@
 
 
   @media only screen and (max-width: 600px) {
+    .description-image {
+      height: 100%;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      filter: blur(2vw);
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    .description-text {
+      font-size: inherit;
+      line-height: 1.6em;
+      height: 70%;
+      margin: 5%;
+      color: rgba(51, 226, 230, 1);
+      filter: drop-shadow(0 0 1vw #010020);
+    }
+
+    .play-button, .close-button {
+      height: 12%;
+      bottom: 5%;
+      font-size: 1.4em;
+      line-height: inherit;
+    }
+
+    .play-button {
+      width: 50%;
+      right: 5%;
+    }
+
+    .close-button {
+      width: 35%;
+      left: 5%;
+    }
+
     .tile {
       width: 35vw;
       height: 40vw;

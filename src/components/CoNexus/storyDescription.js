@@ -41,7 +41,6 @@ const storyDescription = [
   }
 ]
 
-
 function getDescription(name) {
   for(let i in storyDescription) {
     if(storyDescription[i].story === name) {
@@ -51,33 +50,46 @@ function getDescription(name) {
 }
 
 
+// Description tile
+
 const tileCollectionList = document.querySelectorAll('[data-stories]');
 let tileCollection = [];
 let tileDescription = undefined;
-let descriptionText = undefined;
-let playButton = undefined;
+let descriptionText;
+let playButton;
+let closeButton;
+
 
 function descriptionTile(tile) {
   allTilesVisible();
 
   if(tileDescription) {
     tileDescription.style.display = 'none';
-    playButton.removeEventListener('click', () => {});
+    //playButton.removeEventListener('click', () => {});
+    closeButton.removeEventListener('click', () => {});
   }
 
   tileDescription = document.getElementById(`${tile.id}-description`);
-  playButton = document.getElementById(`${tile.id}-button`);
+  //playButton = document.getElementById(`${tile.id}-button`);
+  closeButton = document.getElementById(`${tile.id}-close`);
   descriptionText = document.getElementById(`${tile.id}-text`);
 
   tileDescription.style.display = 'block';
   descriptionText.innerHTML = getDescription(tile.id);
   hideTiles(tile, true);
+  /*
   playButton.addEventListener('click', () => {
-    hideTiles(tile, false);
-    tileDescription.style.display = 'none';
+    
     playButton.removeEventListener('click', () => {});
   })
+  */
+  closeButton.addEventListener('click', () => {
+    hideTiles(tile, false);
+    tileDescription.style.display = 'none';
+    closeButton.removeEventListener('click', () => {});
+  })
 }
+
 
 function hideTiles(tile, visible) {
   let visibilityValue;
@@ -90,11 +102,14 @@ function hideTiles(tile, visible) {
     overflowValue = 'auto';
   } else {
     visibilityValue = 'none';
-    heightValue = '40vw';
+    if(window.outerWidth <= 600) {
+      heightValue = '90vw';
+    } else {
+      heightValue = '40vw';
+    }
     overflowValue = 'hidden';
   }
   for(let i in tileCollectionList) {
-    tileCollectionList[i];
     if(tileCollectionList[i].className === 'tiles-collection') {
       if(tileCollectionList[i].dataset.stories.match(tile.id)) {
         tileCollectionList[i].style.height = heightValue;
@@ -121,5 +136,6 @@ function allTilesVisible() {
     }
   }
 }
+
 
 export default descriptionTile;
