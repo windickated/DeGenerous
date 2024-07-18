@@ -4,12 +4,13 @@
   const storyLink = storyName.replace(/\s+/g, '');
 
   const storyImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}1.avif`;
+  const descriptionImage = `/conexusAssets/descriptionPicture/${storySection}/${storyLink}.avif`;
 </script>
 
 
 
 <div class="description-tile" id="{storyName}-description">
-  <img class="description-image" alt="Story description" src={storyImage} />
+  <img class="description-image" alt="Story description" src={descriptionImage} />
   <p class="description-text" id="{storyName}-text"></p>
   <button class="close-button" id="{storyName}-close">CLOSE</button>
   <button class="play-button" id="{storyName}-button">PLAY NOW</button>
@@ -42,8 +43,9 @@
     height: 90%;
     left: 2.5%;
     bottom: 5%;
-    border: 0.05vw solid rgba(51, 226, 230, 0.75);
+    /*border: 0.05vw solid rgba(51, 226, 230, 0.75);*/
     border-radius: 2vw;
+    filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5))
   }
 
   .description-text {
@@ -121,7 +123,7 @@
   }
 
   .title {
-    font-size: 3vw;
+    font-size: 2.8vw;
     line-height: 1vw;
     white-space: nowrap;
     text-shadow: 0 0 1vw rgba(1, 0, 32, 0.4);
@@ -153,6 +155,7 @@
       bottom: 5%;
       font-size: 1.4em;
       line-height: inherit;
+      backdrop-filter: blur(10vw);
     }
 
     .play-button {

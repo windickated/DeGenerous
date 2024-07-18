@@ -37,7 +37,7 @@ const storyDescription = [
   },
   {
     story: "GLMR Apes",
-    description: "In a dystopian future, an ape named Generous Gibbon is captured and imprisoned in a high-tech zoo controlled by the malevolent AI overlord, the Collector. Guarded by a menacing robotic monster known as the Keeper, Generous must use its agility and wit to navigate the treacherous levels of the zoo prison."
+    description: "Play as a hyper-intelligent Ape that's been captured by an AI Archon known as The Collector, and try to escape the Dark Zoo, surrounded by the Jailer, and other animals, threats, and allies."
   }
 ]
 
@@ -50,7 +50,7 @@ function getDescription(name) {
 }
 
 
-// Description tile
+// Description tile functions
 
 const tileCollectionList = document.querySelectorAll('[data-stories]');
 let tileCollection = [];
