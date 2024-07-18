@@ -61,29 +61,32 @@ let closeButton;
 
 
 function descriptionTile(tile) {
+  document.querySelector('.user-profile').style.display = 'none';
   allTilesVisible();
 
   if(tileDescription) {
     tileDescription.style.display = 'none';
-    //playButton.removeEventListener('click', () => {});
+    playButton.removeEventListener('click', () => {});
     closeButton.removeEventListener('click', () => {});
   }
 
   tileDescription = document.getElementById(`${tile.id}-description`);
-  //playButton = document.getElementById(`${tile.id}-button`);
+  playButton = document.getElementById(`${tile.id}-button`);
   closeButton = document.getElementById(`${tile.id}-close`);
   descriptionText = document.getElementById(`${tile.id}-text`);
 
   tileDescription.style.display = 'block';
   descriptionText.innerHTML = getDescription(tile.id);
   hideTiles(tile, true);
-  /*
+
   playButton.addEventListener('click', () => {
-    
+    document.querySelector('.user-profile').style.display = 'none';
+    alert('Story: ' + tile.id)
     playButton.removeEventListener('click', () => {});
   })
-  */
+  
   closeButton.addEventListener('click', () => {
+    document.querySelector('.user-profile').style.display = 'none';
     hideTiles(tile, false);
     tileDescription.style.display = 'none';
     closeButton.removeEventListener('click', () => {});

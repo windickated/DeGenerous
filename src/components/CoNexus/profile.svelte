@@ -67,7 +67,7 @@
 <div class="profile-container">
   <span class="profile-icon" />
 
-  <section class="user-profile">
+  <section class="user-profile" tabindex="-1">
     <div class="log-in">
       <button class="close-button">Close</button>
       <button class="login-button">Log out</button>
@@ -117,6 +117,7 @@
   }
 
   .user-profile {
+    display: none;
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -198,7 +199,7 @@
 
   .used-true {
     color: rgba(255, 255, 255, 0.35);
-    -webkit-text-stroke: 0.05vw rgba(255, 0, 0, 0.5);
+    -webkit-text-stroke: 0.05vw rgba(255, 0, 0, 0.35);
   }
 
   .used-false {

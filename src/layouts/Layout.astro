@@ -4,6 +4,7 @@ import Profile from "../components/CoNexus/profile.svelte";
 const { title, header, subheading, arrow } = Astro.props;
 ---
 
+
 <html lang="en">
 	<head>
 		<title>{ title }</title>
@@ -16,8 +17,8 @@ const { title, header, subheading, arrow } = Astro.props;
 	<body>
 
 		<section class="container">
-			{arrow && <span class="arrow" />} 
-			{!arrow && <span class="logo" />}
+			{arrow && <span class="icon arrow" />} 
+			{!arrow && <span class="icon logo" />}
 			<p class="header">{ header }</p>
 			<Profile />
 		</section>
@@ -28,13 +29,26 @@ const { title, header, subheading, arrow } = Astro.props;
 
 
 		<script>
-			const icon = document.querySelector('span');
-
-			if(icon.className === 'logo') {
-				icon.addEventListener('click', () => window.open('https://degenerousdao.com/', '_blank'))
-			} else if(icon.className === 'arrow') {
+			const icon = document.querySelector('.icon');
+			if(icon.className === 'icon logo') {
+				icon.addEventListener('click', () => window.open('https://degenerousdao.com/', '_blank'));
+				
+			} else if(icon.className === 'icon arrow') {
 				icon.addEventListener('click', () => window.open('/CoNexus', '_self'));
 			}
+
+			const pfp = document.querySelector('.profile-icon');
+			const profileTab:any = document.querySelector('.user-profile');
+			const profileCloseButton = document.querySelector('.close-button');
+			pfp.addEventListener('click', () => {
+				profileTab.style.display = 'block';
+			})
+			profileCloseButton.addEventListener('click', () => {
+				profileTab.style.display = 'none';
+			})
+			profileTab.addEventListener('blur', () => {
+					console.log('blur');
+				})
 		</script>
 
 
