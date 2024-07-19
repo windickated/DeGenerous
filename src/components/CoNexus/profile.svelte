@@ -202,7 +202,7 @@
     filter: drop-shadow(0 0 0.1vw rgba(51, 226, 230, 0.4));
   }
 
-  button:hover {
+  button:hover, button:active {
     color: rgba(51, 226, 230, 1);
     background-color: rgba(51, 226, 230, 0.5);
     filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.4));
@@ -265,7 +265,7 @@
     z-index: 1;
   }
 
-  .profile-icon:hover {
+  .profile-icon:hover, .profile-icon:active {
     filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5));
 		opacity: 0.75;
   }

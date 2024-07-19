@@ -50,7 +50,8 @@ function getDescription(name) {
 }
 
 
-// Description tile functions
+
+// Description tile function
 
 const tileCollectionList = document.querySelectorAll('[data-stories]');
 let tileCollection = [];
@@ -93,6 +94,7 @@ function descriptionTile(tile) {
   })
 }
 
+// Utility functions
 
 function hideTiles(tile, visible) {
   let visibilityValue;

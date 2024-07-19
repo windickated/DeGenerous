@@ -31,7 +31,7 @@
     text-decoration: none;
   }
 
-  .tile:hover {
+  .tile:hover, .tile:active {
     background-color: rgba(51, 226, 230, 0.3);
     color: #010020;
     filter: drop-shadow(0 0 0.5vw #33e2e6);

@@ -79,7 +79,7 @@
     right: 35%;
   }
 
-  .play-button:hover, .close-button:hover {
+  .play-button:hover, .close-button:hover, .play-button:active, .close-button:active {
     color: rgba(51, 226, 230, 1);
     background-color: rgba(51, 226, 230, 0.5);
     filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.4));
@@ -104,7 +104,7 @@
     flex: none;
   }
 
-  .tile:hover {
+  .tile:hover, .tile:active {
     background-color: rgba(45, 90, 216, 0.9);
     color: rgba(51, 226, 230, 0.9);
     filter: drop-shadow(0 0 0.5vw rgba(51, 226, 230, 0.5));

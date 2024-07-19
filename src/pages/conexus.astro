@@ -7,8 +7,9 @@ CoNexus is the gateway to a boundless multiverse with immersive and dynamic inte
 
 const footerText = ['The AI swiftly adapts to your decision between each step and generates a new story text, set of options, and picture in real-time.', 'This live factor ensures that nobody can predict or manipulate the games, and endless unique possibilities exist.', 'Your choices and actions will shape the course of your unique narrative.']
 
-const arrow = false;
 const menuText = ['A new world with no limits awaits you.', 'Within CoNexus, you will transcend the boundaries of reality as we know it.'];
+
+const arrow = false;
 ---
 
 
@@ -38,6 +39,12 @@ const menuText = ['A new world with no limits awaits you.', 'Within CoNexus, you
         tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
       })
       tile.addEventListener('mouseout', () => {
+        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
+      })
+      tile.addEventListener('touchstart', () => {
+        tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
+      })
+      tile.addEventListener('touchend', () => {
         tilePictures[i].src = `conexusAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
       })
     })
