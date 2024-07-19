@@ -56,6 +56,19 @@
     color: rgba(51, 226, 230, 0.9);
   }
 
+  .description-text::-webkit-scrollbar {
+    width: 0.25vw;
+  }
+
+  .description-text::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .description-text::-webkit-scrollbar-thumb {
+    background: rgba(51, 226, 230, 0.25);
+    border-radius: 1vw;
+  }
+
   .play-button, .close-button {
     position: absolute;
     height: 12%;
