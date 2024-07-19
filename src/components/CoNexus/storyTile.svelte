@@ -35,6 +35,7 @@
     background-color: rgba(1, 0, 32, 0.75);
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
     border-radius: 2.5vw;
+    -webkit-backdrop-filter: blur(1vw);
     backdrop-filter: blur(1vw);
   }
 
@@ -134,6 +135,7 @@
       width: 100%;
       left: 0;
       bottom: 0;
+      -webkit-filter: blur(2vw);
       filter: blur(2vw);
       opacity: 0.5;
       z-index: -1;
@@ -153,6 +155,7 @@
       bottom: 5%;
       font-size: 1.4em;
       line-height: inherit;
+      -webkit-backdrop-filter: blur(10vw);
       backdrop-filter: blur(10vw);
     }
 

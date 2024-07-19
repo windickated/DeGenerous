@@ -162,6 +162,7 @@
     border: 0.1vw solid rgba(51, 226, 230, 0.5);
     border-radius: 2.5vw;
     background-color: rgba(1, 0, 32, 0.5);
+    -webkit-backdrop-filter: blur(2vw);
     backdrop-filter: blur(2vw);
     z-index: 3;
   }
