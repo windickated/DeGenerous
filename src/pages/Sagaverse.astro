@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import GameCollection from "../components/Sagaverse/gameCollection.astro";
 
 const arrow = false;
 const profile = false;
@@ -11,5 +12,9 @@ These experiences, created by ourselves, as well as in collaboration with our We
 
 
 <Layout title="Sagaverse | DeGenerous" header="Sagaverse Gaming" {subheading} {arrow} {profile}>
+
+  <GameCollection gameNames={['Battle for Nexon', 'Ark Assassin', 'Last Stand']} collectionTitle="Our Games"/>
+
+  <GameCollection gameNames={['The Dark Zoo']} collectionTitle="Collaborations"/>
 
 </Layout>
