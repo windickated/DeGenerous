@@ -18,8 +18,8 @@ const { title, header, subheading, arrow } = Astro.props;
 	<body>
 
 		<section class="container">
-			{arrow && <span class="icon arrow" />} 
-			{!arrow && <span class="icon logo" />}
+			{arrow && <a class="icon arrow" href="/CoNexus" aria-label="back-arrow" />} 
+			{!arrow && <a class="icon logo" href="https://degenerousdao.com/" aria-label="dgrs-logo" />}
 			<p class="header">{ header }</p>
 			<Profile {user} {codes} client:load />
 		</section>
@@ -27,30 +27,6 @@ const { title, header, subheading, arrow } = Astro.props;
 
 
     <slot />
-
-
-		<script>
-			const icon = document.querySelector('.icon');
-			if(icon.className === 'icon logo') {
-				icon.addEventListener('click', () => window.open('https://degenerousdao.com/', '_blank'));
-				
-			} else if(icon.className === 'icon arrow') {
-				icon.addEventListener('click', () => window.open('/CoNexus', '_self'));
-			}
-
-			const pfp = document.querySelector('.profile-icon');
-			const profileTab:any = document.querySelector('.user-profile');
-			const profileCloseButton = document.querySelector('.close-button');
-			pfp.addEventListener('click', () => {
-				profileTab.style.display = 'block';
-			})
-			profileCloseButton.addEventListener('click', () => {
-				profileTab.style.display = 'none';
-			})
-			profileTab.addEventListener('blur', () => {
-					console.log('blur');
-				})
-		</script>
 
 
 		<style>
@@ -74,7 +50,7 @@ const { title, header, subheading, arrow } = Astro.props;
 				filter: drop-shadow(0 0 1vw #010020)
 			}
 
-			span {
+			a {
 				position: absolute;
 				top: 2vw;
 				left: 2vw;
@@ -138,7 +114,7 @@ const { title, header, subheading, arrow } = Astro.props;
     			border-radius: 2.5vw;
 				}
 
-				span {
+				a {
 					width: 3em;
 					height: 3em;
 					top: 1em;

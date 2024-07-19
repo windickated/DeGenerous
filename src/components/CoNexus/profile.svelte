@@ -2,9 +2,18 @@
   export let user;
   export let codes;
 
-  let isLogged = false;
+  let isProfileClosed = true;
+  let isLogged = true;
   let walletConnected = false;
   let walletAddress;
+
+  function profileTabHandle() {
+    if(isProfileClosed) {
+      isProfileClosed = false;
+    } else {
+      isProfileClosed = true;
+    }
+  }
 
   function log() {
     if(isLogged) {
@@ -27,11 +36,11 @@
 
 
 <div class="profile-container">
-  <span class="profile-icon" />
+  <span class="profile-icon" on:click={profileTabHandle} on:keydown={profileTabHandle} role="button" tabindex="-1" />
 
-  <section class="user-profile">
+  <section class="user-profile closed-{isProfileClosed}">
     <div class="log-in">
-      <button class="close-button">Close</button>
+      <button class="close-button" on:click={profileTabHandle}>Close</button>
       {#if isLogged}
         <button class="login-button" on:click={log}>Log out</button>
       {:else if !isLogged}
@@ -146,7 +155,6 @@
   }
 
   .user-profile {
-    display: none;
     position: absolute;
     right: 2vw;
     top: 2vw;
@@ -156,6 +164,14 @@
     background-color: rgba(1, 0, 32, 0.5);
     backdrop-filter: blur(2vw);
     z-index: 3;
+  }
+
+  .closed-false {
+    display: block;
+  }
+
+  .closed-true {
+    display: none;
   }
 
   .user-profile-info, .log-in, .wallet-connect {

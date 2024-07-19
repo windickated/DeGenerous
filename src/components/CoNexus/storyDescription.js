@@ -61,7 +61,7 @@ let closeButton;
 
 
 function descriptionTile(tile) {
-  document.querySelector('.user-profile').style.display = 'none';
+  document.querySelector('.user-profile').className = document.querySelector('.user-profile').className.replace('false', 'true');
   allTilesVisible();
 
   if(tileDescription) {
@@ -80,13 +80,13 @@ function descriptionTile(tile) {
   hideTiles(tile, true);
 
   playButton.addEventListener('click', () => {
-    document.querySelector('.user-profile').style.display = 'none';
+    document.querySelector('.user-profile').className = document.querySelector('.user-profile').className.replace('false', 'true');
     alert('Story: ' + tile.id)
     playButton.removeEventListener('click', () => {});
   })
   
   closeButton.addEventListener('click', () => {
-    document.querySelector('.user-profile').style.display = 'none';
+    document.querySelector('.user-profile').className = document.querySelector('.user-profile').className.replace('false', 'true');
     hideTiles(tile, false);
     tileDescription.style.display = 'none';
     closeButton.removeEventListener('click', () => {});
