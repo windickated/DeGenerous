@@ -30,7 +30,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 99.8%;
+    width: 100%;
     height: 100%;
     background-color: rgba(1, 0, 32, 0.75);
     border: 0.05vw solid rgba(51, 226, 230, 0.75);

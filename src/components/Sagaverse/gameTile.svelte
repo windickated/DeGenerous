@@ -2,9 +2,8 @@
   export let gameName;
   const gameLink = gameName.replace(/\s+/g, '');
 
-  const gameImage = `/sagaverseAssets/titlePicture/${gameLink}1.png`;
-  const descriptionImage = gameImage;
-  //const descriptionImage = `/sagaverseAssets/descriptionPicture/${gameLink}.avif`;
+  const gameImage = `/sagaverseAssets/titlePicture/${gameLink}1.avif`;
+  const descriptionImage = `/sagaverseAssets/descriptionPicture/${gameLink}.avif`;
 </script>
 
 
@@ -30,7 +29,7 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 99.8%;
+    width: 100%;
     height: 100%;
     background-color: rgba(1, 0, 32, 0.75);
     border: 0.05vw solid rgba(51, 226, 230, 0.75);
@@ -49,8 +48,8 @@
   }
 
   .description-text {
-    font-size: 2.5vw;
-    line-height: 4vw;
+    font-size: 2vw;
+    line-height: 3.5vw;
     height: 70%;
     margin: 2.5% 2.5% 20% 47%;
     overflow-y: scroll;
