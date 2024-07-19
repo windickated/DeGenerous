@@ -2,14 +2,15 @@
 import Layout from "../layouts/Layout.astro"
 
 const profile = false;
+const subheading = 'Select page:'
 ---
 
 
-<Layout title="DeGenerous DAO" header="Select page:" {profile}>
+<Layout title="DeGenerous DAO" header="DeGenerous DAO" {subheading} {profile}>
 		<div>
 			<a href="CoNexus">CoNexus</a>
 			<a href="Sagaverse">Sagaverse</a>
-			<a href="#">Galactic Governance Hub</a>
+			<a href="https://windickated.github.io/GovernanceHub/">Galactic Governance Hub</a>
 		</div>
 </Layout>
 
@@ -31,8 +32,8 @@ const profile = false;
 
 	a {
 		margin: 2.5vw;
-		font-size: 1.5em;
-		line-height: 1.5em;
+		font-size: 3vw;
+		line-height: 4vw;
 		text-decoration: none;
 		text-align: center;
 		color: rgba(51, 226, 230, 0.75);
