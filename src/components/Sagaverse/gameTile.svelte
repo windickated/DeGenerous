@@ -1,5 +1,6 @@
 <script>
   export let gameName;
+  export let isCollab;
   const gameLink = gameName.replace(/\s+/g, '');
 
   const gameImage = `/sagaverseAssets/titlePicture/${gameLink}1.avif`;
@@ -12,7 +13,11 @@
   <img class="description-image" alt="Story description" src={descriptionImage} />
   <p class="description-text" id="{gameName}-text"></p>
   <button class="close-button" id="{gameName}-close">CLOSE</button>
-  <button class="play-button" id="{gameName}-button">PLAY NOW</button>
+  {#if !isCollab}
+    <button class="play-button" id="{gameName}-button">PLAY NOW</button>
+  {:else if isCollab}
+    <button class="play-button" id="{gameName}-button">HOW TO PLAY</button>
+  {/if}
 </div>
 
 
@@ -182,13 +187,13 @@
     }
 
     .tile {
-      width: 35vw;
-      height: 40vw;
+      width: 40vw;
+      height: 48vw;
     }
 
     .title {
       font-size: 1em;
-      line-height: inherit;
+      line-height: 1.5em;
     }
   }
 </style>

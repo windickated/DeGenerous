@@ -92,7 +92,7 @@ function hideTiles(tile, visible) {
     if(window.outerWidth <= 600) {
       heightValue = '90vw';
     } else {
-      heightValue = '40vw';
+      heightValue = '36.8vw';
     }
     overflowValue = 'hidden';
   }

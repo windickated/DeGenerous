@@ -2,6 +2,11 @@
 import GameTile from "./gameTile.svelte";
 
 const { gameNames, collectionTitle } = Astro.props;
+
+let isCollab = false;
+if(collectionTitle === 'Collaborations') {
+  isCollab = true;
+}
 ---
 
 
@@ -9,7 +14,7 @@ const { gameNames, collectionTitle } = Astro.props;
 
 <section class="tiles-collection" data-stories=`${gameNames}`>
   {gameNames.map((name:any) => (
-    <GameTile gameName={name} />
+    <GameTile gameName={name} {isCollab} />
   ))}
 </section>
 
