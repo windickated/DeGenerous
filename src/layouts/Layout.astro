@@ -2,7 +2,7 @@
 import Profile from "../components/CoNexus/profile.svelte";
 import { user, codes } from "../userData.js"
 
-const { title, header, subheading, arrow } = Astro.props;
+const { title, header, subheading, arrow, profile = true } = Astro.props;
 ---
 
 
@@ -21,7 +21,7 @@ const { title, header, subheading, arrow } = Astro.props;
 			{arrow && <a class="icon arrow" href="/CoNexus" aria-label="back-arrow" />} 
 			{!arrow && <a class="icon logo" href="https://degenerousdao.com/" aria-label="dgrs-logo" />}
 			<p class="header">{ header }</p>
-			<Profile {user} {codes} client:load />
+			{profile && <Profile {user} {codes} client:load />}
 		</section>
 		<p class="subheading">{ subheading }</p>
 

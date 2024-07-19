@@ -1,7 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro"
+
+const profile = false;
 ---
 
-<Layout>
-		<a href="CoNexus">CoNexus</a>
+
+<Layout title="DeGenerous DAO" header="Select page:" {profile}>
+		<div>
+			<a href="CoNexus">CoNexus</a>
+			<a href="Sagaverse">Sagaverse</a>
+		</div>
 </Layout>
+
+
+<style>
+	div {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-around;
+		align-items: center;
+		width: 50vw;
+		margin: 0 25vw;
+		border: 0.1vw solid rgba(51, 226, 230, 0.5);
+    border-radius: 2.5vw;
+		background-color: rgba(51, 226, 230, 0.1);
+		-webkit-backdrop-filter: blur(2vw);
+		backdrop-filter: blur(2vw);
+	}
+
+	a {
+		margin: 2.5vw;
+		font-size: 2em;
+		text-decoration: none;
+		color: rgba(51, 226, 230, 0.75);
+	}
+
+	a:hover {
+		color: rgba(51, 226, 230, 1)
+	}
+</style>
