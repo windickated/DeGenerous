@@ -18,7 +18,7 @@ const { title, header, subheading, arrow, profile = true } = Astro.props;
 	<body>
 
 		<section class="container">
-			{arrow && <a class="icon arrow" href="/CoNexus" aria-label="back-arrow" />} 
+			{arrow && <a class="icon arrow" href="../CoNexus" aria-label="back-arrow" />} 
 			{!arrow && <a class="icon logo" href="https://degenerousdao.com/" aria-label="dgrs-logo" />}
 			<p class="header">{ header }</p>
 			{profile && <Profile {user} {codes} client:load />}
@@ -62,7 +62,7 @@ const { title, header, subheading, arrow, profile = true } = Astro.props;
 			}
 
 			.arrow {
-				background-image: url('/backArrow.avif');
+				background-image: url('/public/backArrow.avif');
 				opacity: 0.4;
 			}
 
@@ -72,7 +72,7 @@ const { title, header, subheading, arrow, profile = true } = Astro.props;
 			}
 
 			.logo {
-				background-image: url('/logo.avif');
+				background-image: url('/public/logo.avif');
 				opacity: 0.7;
 			}
 
