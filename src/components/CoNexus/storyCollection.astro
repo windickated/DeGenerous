@@ -23,19 +23,19 @@ const { storySection, storyNames, collectionTitle } = Astro.props;
   // Adding event listeners to story tiles
   tiles.forEach((tile:any, i) => {
     tile.addEventListener('mouseover', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}2.avif`;
+      tilePictures[i].src = `/public/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}2.avif`;
     })
     tile.addEventListener('mouseout', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}1.avif`;
+      tilePictures[i].src = `/public/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}1.avif`;
     })
     tile.addEventListener('click', () => {
       descriptionTile(tile);
     })
     tile.addEventListener('touchstart', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}2.avif`;
+      tilePictures[i].src = `/public/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}2.avif`;
     })
     tile.addEventListener('touchend', () => {
-      tilePictures[i].src = `/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}1.avif`;
+      tilePictures[i].src = `/public/conexusAssets/titlePicture/${tile.dataset.section}/${tile.id.replace(/\s+/g, '')}1.avif`;
     })
   })
 </script>
