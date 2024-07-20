@@ -44,7 +44,7 @@
       {#if isLogged}
         <button class="login-button" on:click={log}>Log out</button>
       {:else if !isLogged}
-        <button class="how-button" on:click={() => window.open('https://degenerousdao.gitbook.io/wiki', '_blank')}>How to sign up?</button>
+        <button class="how-button">How to sign up?</button>
       {/if}
     </div>
 
