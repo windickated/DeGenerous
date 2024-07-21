@@ -15,6 +15,10 @@
     } else {
       isProfileClosed = true;
     }
+
+    if(signUp) {
+      signUp = false;
+    }
   }
 
   function logIn() {
@@ -26,7 +30,9 @@
   }
 
   function createNewUser() {
-    if(!signUp) {
+    if(signUp) {
+      signUp = false;
+    } else {
       signUp = true;
     }
   }
@@ -123,10 +129,7 @@
         <label class="input-label" for="user-password">Password</label>
         <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required>
         <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required>
-        <div>
-          <button class="back-button">Back</button>
-          <button class="submit-button" on:click={logIn}>Create account</button>
-        </div>
+        <button class="submit-button" on:click={logIn}>Create account</button>
       </form>
 
     {/if}
