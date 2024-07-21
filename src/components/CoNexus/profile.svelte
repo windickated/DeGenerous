@@ -4,8 +4,10 @@
 
   let isProfileClosed = true;
   let isLogged = true;
+  let signUp = false;
   let walletConnected = false;
   let walletAddress;
+
 
   function profileTabHandle() {
     if(isProfileClosed) {
@@ -15,12 +17,17 @@
     }
   }
 
-  function log() {
+  function logIn() {
     if(isLogged) {
       isLogged = false;
     } else {
-      checkValidity();
       isLogged = true;
+    }
+  }
+
+  function createNewUser() {
+    if(!signUp) {
+      signUp = true;
     }
   }
 
@@ -42,7 +49,7 @@
     <div class="log-in">
       <button class="close-button" on:click={profileTabHandle}>Close</button>
       {#if isLogged}
-        <button class="login-button" on:click={log}>Log out</button>
+        <button class="login-button" on:click={logIn}>Log out</button>
       {:else if !isLogged}
         <button class="how-button" on:click={() => window.open('https://degenerousdao.gitbook.io/wiki', '_blank')}>How to sign up?</button>
       {/if}
@@ -91,22 +98,37 @@
         {/each}
       </div>
 
-    {:else if !isLogged}
+    {:else if !isLogged && !signUp}
 
       <form class="login-form">
         <label class="input-label" for="user-mail">Mail</label>
         <input class="user-input" type="email" id="user-mail" placeholder="Enter your email" required>
         <label class="input-label" for="user-password">Password</label>
         <input class="user-input" type="password" id="user-password" placeholder="Enter your password" minlength="8" required>
-        <button class="submit-button" on:click={log}>Log-in</button>
+        <button class="submit-button" on:click={logIn}>Log-in</button>
       </form>
 
       <hr>
 
       <form class="signup-form">
-        <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" required>
-        <button class="submit-button">Sign-up</button>
+        <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required>
+        <button class="submit-button" on:click={createNewUser}>Sign-up</button>
       </form>
+
+    {:else if !isLogged && signUp}
+
+      <form class="login-form">
+        <label class="input-label" for="user-mail">Mail</label>
+        <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required>
+        <label class="input-label" for="user-password">Password</label>
+        <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required>
+        <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required>
+        <div>
+          <button class="back-button">Back</button>
+          <button class="submit-button" on:click={logIn}>Create account</button>
+        </div>
+      </form>
+
     {/if}
 
   </section>
