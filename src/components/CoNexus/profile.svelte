@@ -12,16 +12,23 @@
   let userPassword;
   let refCode;
 
-  let newUserMail;
-  let newUserPassword;
+  export const newUser = {
+    id: 1,
+    mail: undefined,
+    password: undefined,
+    first_name: undefined,
+    last_name: undefined,
+    role: "user"
+  };
   let newUserPasswordConfirmation;
-  let userFirstName;
-  let userLastName;
 
   function profileTabHandle() {
     if(isProfileClosed) {
       isProfileClosed = false;
     } else {
+      userMail = '';
+      userPassword = '';
+      refCode = '';
       isProfileClosed = true;
     }
 
@@ -38,19 +45,27 @@
         console.log('User is logged')
         console.log('Mail/password: ', userMail, userPassword)
         isLogged = true;
+        userMail = '';
+        userPassword = '';
       }
     }
   }
 
   function createNewUser() {
     if(signUp) {
-      console.log('User created: ', newUserMail, newUserPassword, userFirstName, userLastName)
+      console.log('User created.', newUser);
       signUp = false;
+      newUser.id = 1;
+      newUser.mail = '';
+      newUser.password = '';
+      newUser.first_name = '';
+      newUser.last_name = '';
     } else {
       codes.map((code) => {
         if(refCode === code.code && !code.is_used) {
           console.log('Used code: ', refCode);
           signUp = true;
+          refCode = '';
         }
       })
     }
@@ -135,7 +150,7 @@
 
       <hr>
 
-      <form class="signup-form">
+      <form class="ref-code-form">
         <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required bind:value={refCode}>
         <button class="submit-button" on:click={createNewUser}>Sign-up</button>
       </form>
@@ -144,14 +159,14 @@
 
       <form class="signup-form">
         <label class="input-label" for="new-user-mail">Mail</label>
-        <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required bind:value={newUserMail}>
+        <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required bind:value={newUser.mail}>
         <label class="input-label" for="new-user-password">Password</label>
-        <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required bind:value={newUserPassword}>
+        <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required bind:value={newUser.password}>
         <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required bind:value={newUserPasswordConfirmation}>
         <label class="input-label" for="user-first-name">First name</label>
-        <input class="user-input" type="text" id="user-first-name" placeholder="Your First name" bind:value={userFirstName}>
+        <input class="user-input" type="text" id="user-first-name" placeholder="Your First name" bind:value={newUser.first_name}>
         <label class="input-label" for="user-last-name">Last name</label>
-        <input class="user-input" type="text" id="user-last-name" placeholder="Your Last name" bind:value={userLastName}>
+        <input class="user-input" type="text" id="user-last-name" placeholder="Your Last name" bind:value={newUser.last_name}>
         <button class="submit-button" on:click={createNewUser}>Create account</button>
       </form>
 
