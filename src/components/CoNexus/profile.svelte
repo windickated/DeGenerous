@@ -8,6 +8,13 @@
   let walletConnected = false;
   let walletAddress;
 
+  let userMail;
+  let userPassword;
+  let refCode;
+
+  let newUserMail;
+  let newUserPassword;
+  let newUserPasswordConfirmation;
 
   function profileTabHandle() {
     if(isProfileClosed) {
@@ -25,14 +32,17 @@
     if(isLogged) {
       isLogged = false;
     } else {
+      console.log('Mail/password: ', userMail, userPassword)
       isLogged = true;
     }
   }
 
   function createNewUser() {
     if(signUp) {
+      console.log('User created: ', newUserMail, newUserPassword)
       signUp = false;
     } else {
+      console.log('Used code: ', refCode)
       signUp = true;
     }
   }
@@ -108,16 +118,16 @@
 
       <form class="login-form">
         <label class="input-label" for="user-mail">Mail</label>
-        <input class="user-input" type="email" id="user-mail" placeholder="Enter your email" required>
+        <input class="user-input" type="email" id="user-mail" placeholder="Enter your email" required bind:value={userMail}>
         <label class="input-label" for="user-password">Password</label>
-        <input class="user-input" type="password" id="user-password" placeholder="Enter your password" minlength="8" required>
+        <input class="user-input" type="password" id="user-password" placeholder="Enter your password" minlength="8" required bind:value={userPassword}>
         <button class="submit-button" on:click={logIn}>Log-in</button>
       </form>
 
       <hr>
 
       <form class="signup-form">
-        <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required>
+        <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required bind:value={refCode}>
         <button class="submit-button" on:click={createNewUser}>Sign-up</button>
       </form>
 
@@ -125,11 +135,11 @@
 
       <form class="login-form">
         <label class="input-label" for="user-mail">Mail</label>
-        <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required>
+        <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required bind:value={newUserMail}>
         <label class="input-label" for="user-password">Password</label>
-        <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required>
-        <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required>
-        <button class="submit-button" on:click={logIn}>Create account</button>
+        <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required bind:value={newUserPassword}>
+        <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required bind:value={newUserPasswordConfirmation}>
+        <button class="submit-button" on:click={createNewUser}>Create account</button>
       </form>
 
     {/if}
