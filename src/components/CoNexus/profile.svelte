@@ -100,7 +100,7 @@
       <p class="refferal-codes-legend">Your refferal codes</p>
       <div class="refferal-codes">
         {#each codes as code}
-          <p class="ref-code used-{code.is_used}">{code.code}</p>
+          <p class="ref-code" class:used={code.is_used} class:not-used={!code.is_used}>{code.code}</p>
         {/each}
       </div>
 
@@ -268,12 +268,12 @@
     color: rgba(255, 255, 255, 0.5);
   }
 
-  .used-true {
+  .used {
     color: rgba(255, 255, 255, 0.35);
     -webkit-text-stroke: 0.05vw rgba(255, 0, 0, 0.35);
   }
 
-  .used-false {
+  .not-used {
     color: rgba(255, 255, 255, 0.75);
     filter: drop-shadow(0 0 0.1vw rgba(51, 226, 230, 0.9));
   }
