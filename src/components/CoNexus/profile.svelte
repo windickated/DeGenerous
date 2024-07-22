@@ -15,6 +15,8 @@
   let newUserMail;
   let newUserPassword;
   let newUserPasswordConfirmation;
+  let userFirstName;
+  let userLastName;
 
   function profileTabHandle() {
     if(isProfileClosed) {
@@ -39,7 +41,7 @@
 
   function createNewUser() {
     if(signUp) {
-      console.log('User created: ', newUserMail, newUserPassword)
+      console.log('User created: ', newUserMail, newUserPassword, userFirstName, userLastName)
       signUp = false;
     } else {
       console.log('Used code: ', refCode)
@@ -133,12 +135,16 @@
 
     {:else if !isLogged && signUp}
 
-      <form class="login-form">
-        <label class="input-label" for="user-mail">Mail</label>
+      <form class="signup-form">
+        <label class="input-label" for="new-user-mail">Mail</label>
         <input class="user-input" type="email" id="new-user-mail" placeholder="Your email" required bind:value={newUserMail}>
-        <label class="input-label" for="user-password">Password</label>
+        <label class="input-label" for="new-user-password">Password</label>
         <input class="user-input" type="password" id="new-user-password" placeholder="Your password" minlength="8" required bind:value={newUserPassword}>
         <input class="user-input" type="password" id="confirm-new-user-password" placeholder="Confirm password" required bind:value={newUserPasswordConfirmation}>
+        <label class="input-label" for="user-first-name">First name</label>
+        <input class="user-input" type="text" id="user-first-name" placeholder="Your First name" bind:value={userFirstName}>
+        <label class="input-label" for="user-last-name">Last name</label>
+        <input class="user-input" type="text" id="user-last-name" placeholder="Your Last name" bind:value={userLastName}>
         <button class="submit-button" on:click={createNewUser}>Create account</button>
       </form>
 
