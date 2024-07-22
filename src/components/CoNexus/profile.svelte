@@ -180,7 +180,7 @@
         <label class="input-label" for="user-password">Password</label>
         <input class="user-input" type="password" id="user-password" placeholder="Enter your password" minlength="8" required bind:value={userPassword}>
         <p class="validation-check" bind:this={loginValidationWarning}>Invalid credentials!</p>
-        <button class="submit-button" on:click={logIn}>Log-in</button>
+        <button class="submit-button" type="submit" on:click={logIn}>Log-in</button>
       </form>
 
       <hr>
@@ -188,7 +188,7 @@
       <form class="ref-code-form">
         <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required bind:value={refCode}>
         <p class="validation-check" bind:this={refCodeValidationWarning}>This code is not valid!</p>
-        <button class="submit-button" on:click={createNewUser}>Sign-up</button>
+        <button class="submit-button" type="submit" on:click={createNewUser}>Sign-up</button>
       </form>
 
     {:else if !isLogged && signUp}
@@ -204,7 +204,7 @@
         <label class="input-label" for="user-last-name">Last name</label>
         <input class="user-input" type="text" id="user-last-name" placeholder="Your Last name" bind:value={newUser.last_name}>
         <p class="validation-check" bind:this={newUserValidationWarning}>Fill in all required fields!</p>
-        <button class="submit-button" on:click={createNewUser}>Create account</button>
+        <button class="submit-button" type="submit" on:click={createNewUser}>Create account</button>
       </form>
 
     {/if}
