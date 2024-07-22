@@ -34,8 +34,11 @@
     if(isLogged) {
       isLogged = false;
     } else {
-      console.log('Mail/password: ', userMail, userPassword)
-      isLogged = true;
+      if(userMail === user.mail && userPassword === user.password) {
+        console.log('User is logged')
+        console.log('Mail/password: ', userMail, userPassword)
+        isLogged = true;
+      }
     }
   }
 
@@ -44,8 +47,12 @@
       console.log('User created: ', newUserMail, newUserPassword, userFirstName, userLastName)
       signUp = false;
     } else {
-      console.log('Used code: ', refCode)
-      signUp = true;
+      codes.map((code) => {
+        if(refCode === code.code && !code.is_used) {
+          console.log('Used code: ', refCode);
+          signUp = true;
+        }
+      })
     }
   }
 
