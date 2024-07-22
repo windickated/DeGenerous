@@ -3,7 +3,7 @@
   export let codes;
 
   let isProfileClosed = true;
-  let isLogged = true;
+  let isLogged = false;
   let signUp = false;
   let walletConnected = false;
   let walletAddress;
@@ -18,54 +18,67 @@
     password: undefined,
     first_name: undefined,
     last_name: undefined,
-    role: "user"
+    role: "user",
   };
   let newUserPasswordConfirmation;
+
+  let loginValidationWarning;
+  let refCodeValidationWarning;
+  let newUserValidationWarning;
+
 
   function profileTabHandle() {
     if(isProfileClosed) {
       isProfileClosed = false;
     } else {
-      userMail = '';
-      userPassword = '';
-      refCode = '';
+      emptyFields();
       isProfileClosed = true;
-    }
-
-    if(signUp) {
-      signUp = false;
-    }
-  }
-
-  function logIn() {
-    if(isLogged) {
-      isLogged = false;
-    } else {
-      if(userMail === user.mail && userPassword === user.password) {
-        console.log('User is logged')
-        console.log('Mail/password: ', userMail, userPassword)
-        isLogged = true;
-        userMail = '';
-        userPassword = '';
+      if(signUp) {
+        signUp = false;
       }
     }
   }
 
-  function createNewUser() {
+  function logIn(event) {
+    if(isLogged) {
+      console.log(`User "${user.mail}" is logged out`);
+      isLogged = false;
+    } else {
+      if(userMail === user.mail && userPassword === user.password) {
+        console.log(`User "${userMail}" is logged in`);
+        isLogged = true;
+        emptyFields();
+      } else {
+        loginValidationWarning.style.display = 'block';
+        event.preventDefault();
+      }
+    }
+  }
+
+  function createNewUser(event) {
     if(signUp) {
-      console.log('User created.', newUser);
-      signUp = false;
-      newUser.id = 1;
-      newUser.mail = '';
-      newUser.password = '';
-      newUser.first_name = '';
-      newUser.last_name = '';
+      if(newUser.mail === undefined || newUser.password === undefined) {
+        newUserValidationWarning.style.display = 'block';
+        newUserValidationWarning.innerHTML = 'Fill in all required fields!';
+        event.preventDefault();
+      } else if(newUser.password === newUserPasswordConfirmation) {
+        console.log('User created.', newUser);
+        signUp = false;
+        undefine(newUser);
+      } else {
+        newUserValidationWarning.style.display = 'block';
+        newUserValidationWarning.innerHTML = 'Passwords do not match!';
+        event.preventDefault();
+      }
     } else {
       codes.map((code) => {
         if(refCode === code.code && !code.is_used) {
-          console.log('Used code: ', refCode);
+          console.log('Used referral code: ', refCode);
           signUp = true;
-          refCode = '';
+          emptyFields();
+        } else {
+          refCodeValidationWarning.style.display = 'block';
+          event.preventDefault();
         }
       })
     }
@@ -73,12 +86,33 @@
 
   function connectWallet() {
     if(walletConnected) {
+      console.log('Wallet disconnected.')
       walletConnected = false;
     } else {
       walletConnected = true;
+      console.log('Wallet connected.')
       walletAddress = '0xeb0a...60c1';
     }
   }
+
+  function emptyFields() {
+    userMail = '';
+    userPassword = '';
+    refCode = '';
+    newUserPasswordConfirmation = '';
+    if(!signUp) {
+      loginValidationWarning.style.display = 'none';
+      refCodeValidationWarning.style.display = 'none';
+    }
+  }
+
+  function undefine(user) {
+      user.mail = undefined;
+      user.password = undefined;
+      user.first_name = undefined;
+      user.last_name = undefined;
+      newUserValidationWarning.style.display = 'none';
+    }
 </script>
 
 
@@ -145,6 +179,7 @@
         <input class="user-input" type="email" id="user-mail" placeholder="Enter your email" required bind:value={userMail}>
         <label class="input-label" for="user-password">Password</label>
         <input class="user-input" type="password" id="user-password" placeholder="Enter your password" minlength="8" required bind:value={userPassword}>
+        <p class="validation-check" bind:this={loginValidationWarning}>Invalid credentials!</p>
         <button class="submit-button" on:click={logIn}>Log-in</button>
       </form>
 
@@ -152,6 +187,7 @@
 
       <form class="ref-code-form">
         <input class="user-input" type="text" id="refferal-code" placeholder="Enter your refferal code" minlength="16" maxlength="16" required bind:value={refCode}>
+        <p class="validation-check" bind:this={refCodeValidationWarning}>This code is not valid!</p>
         <button class="submit-button" on:click={createNewUser}>Sign-up</button>
       </form>
 
@@ -167,6 +203,7 @@
         <input class="user-input" type="text" id="user-first-name" placeholder="Your First name" bind:value={newUser.first_name}>
         <label class="input-label" for="user-last-name">Last name</label>
         <input class="user-input" type="text" id="user-last-name" placeholder="Your Last name" bind:value={newUser.last_name}>
+        <p class="validation-check" bind:this={newUserValidationWarning}>Fill in all required fields!</p>
         <button class="submit-button" on:click={createNewUser}>Create account</button>
       </form>
 
@@ -177,7 +214,7 @@
 
 
 <style>
-  .login-form, .signup-form {
+  .login-form, .signup-form, .ref-code-form {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -210,6 +247,13 @@
     color: rgba(51, 226, 230, 0.75);
     background-color: rgba(51, 226, 230, 0.1);
     cursor: pointer;
+  }
+
+  .validation-check {
+    display: none;
+    font-size: 1.5vw;
+    margin-bottom: 2vw;
+    color: rgba(255, 50, 50, 0.8);
   }
 
   hr {
