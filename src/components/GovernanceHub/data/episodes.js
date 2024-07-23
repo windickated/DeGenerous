@@ -292,3 +292,28 @@ export function getStoryDuration(number) {
 
   return fullDate;
 }
+
+
+export function updateStory(number) {
+  const header = document.querySelector('.header');
+  const duration = document.querySelector('.duration');
+  const video = document.getElementById('youtube');
+  const text = document.querySelector('.text');
+  const options = document.querySelector('.options');
+
+  header.innerHTML = 'Dischordian Saga: ' + seasonOne[number].storyTitle + ' - Episode ' + number;
+  duration.innerHTML = getStoryDuration(number);
+  video.src = `https://www.youtube.com/embed/${seasonOne[number].videoLink}`;
+
+  let html = '';
+  seasonOne[number].storyText.forEach((paragraph) => {
+    html += `<p class="story-p">${paragraph}</p>`
+  })
+  text.innerHTML = html;
+
+  html = '';
+  seasonOne[number].storyOptions.forEach((option) => {
+    html += `<li class="option">${option}</li>`;
+  })
+  options.innerHTML = html;
+}

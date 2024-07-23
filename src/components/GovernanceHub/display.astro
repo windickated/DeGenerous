@@ -1,5 +1,10 @@
 ---
   import { displayButtons } from "./data/buttons.js";
+  import { seasonOne } from "./data/episodes";
+
+  const { storyNumber } = Astro.props;
+  
+  const videoLink = `https://www.youtube.com/embed/${seasonOne[storyNumber - 1].videoLink}`;
 ---
 
 
@@ -11,7 +16,7 @@
   <img src="/public/governanceHubAssets/display.avif" alt="Display" id="display" />
   <img src="/public/governanceHubAssets/displayBG.avif" alt="Display background" id="display-bg" />
   <div class="video">
-    <iframe id="youtube" title="YouTube" allowfullscreen></iframe>
+    <iframe src={videoLink} id="youtube" title="YouTube" allowfullscreen></iframe>
   </div>
 </section>
 

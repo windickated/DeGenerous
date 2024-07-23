@@ -43,13 +43,7 @@ const { storyNumber = 1 } = Astro.props;
 
 <script>
   import { episodesPanel, otherEpisodesIcon } from "./data/panels";
-  import { seasonOne, episodes, getStoryDuration } from "./data/episodes";
-
-  const header = document.querySelector('.header');
-  const duration = document.querySelector('.duration');
-  const video = document.getElementById('youtube');
-  const text = document.querySelector('.text');
-  const options = document.querySelector('.options');
+  import { seasonOne, episodes, getStoryDuration, updateStory } from "./data/episodes";
 
   const storyNodeTiles = document.querySelectorAll('.story-node-tile');
 
@@ -100,25 +94,6 @@ const { storyNumber = 1 } = Astro.props;
         tile.style.filter = 'none';
       }
     })
-  }
-
-  // Render new story
-  function updateStory(number) {
-    header.innerHTML = 'Dischordian Saga: ' + seasonOne[number].storyTitle + ' - Episode ' + number;
-    duration.innerHTML = getStoryDuration(number);
-    video.src = `https://www.youtube.com/embed/${seasonOne[number].videoLink}`;
-
-    let html = '';
-    seasonOne[number].storyText.forEach((paragraph) => {
-      html += `<p class="story-p">${paragraph}</p>`
-    })
-    text.innerHTML = html;
-
-    html = '';
-    seasonOne[number].storyOptions.forEach((option) => {
-      html += `<li class="option">${option}</li>`;
-    })
-    options.innerHTML = html;
   }
 </script>
 

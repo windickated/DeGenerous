@@ -1,5 +1,7 @@
 ---
 import { consoleButtons } from "./data/buttons.js"
+
+const { storyNumber } = Astro.props;
 ---
 
 
@@ -40,18 +42,18 @@ import { consoleButtons } from "./data/buttons.js"
         case 'conexus': 
           window.open('https://conexus.degenerousdao.com/', '_blank');
           break;
-        // case 'back': 
-        //   if(storyNumber != 1) {
-        //     activeEpisode(storyNumber - 2);
-        //   }
-        //   break;
+        case 'back': 
+          if(storyNumber != 1) {
+            activeEpisode(storyNumber - 2);
+          }
+          break;
         case 'omnihub': 
           //window.open();
           break;
-        // case 'forward':
-        //   if(storyNumber != lastStoryNumber) {
-        //     activeEpisode(storyNumber);
-        //   }
+        case 'forward':
+          if(storyNumber != lastStoryNumber) {
+            activeEpisode(storyNumber);
+          }
           break;
         case 'sagaverse':
           window.open('https://degenerousdao.com/', '_blank');

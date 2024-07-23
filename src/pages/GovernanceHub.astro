@@ -4,6 +4,8 @@ import Console from "../components/GovernanceHub/console.astro"
 import Episodespanel from "../components/GovernanceHub/episodespanel.astro";
 import Story from "../components/GovernanceHub/story.svelte";
 import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
+
+const storyNumber = 12;
 ---
 
 
@@ -19,13 +21,13 @@ import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 	<body>
 
 
-    <Display />
+    <Display {storyNumber} />
 
-		<Episodespanel storyNumber="12" />
+		<Episodespanel {storyNumber} />
 
 		<Sidepanel nftNumbers={[12, 35, 67, 228]} />
 
-		<Console />
+		<Console {storyNumber} />
 		
 
 		<script>
