@@ -1,4 +1,4 @@
-const seasonOne = [
+export const seasonOne = [
   {
     episode: 1,
     videoLink:"fkHun-QPbKk",
@@ -259,4 +259,17 @@ const seasonOne = [
   }
 ]
 
-export default seasonOne;
+
+class EpisodeTile {
+  constructor(data, i) {
+    this.title = `Episode ${i + 1} - ${data[i].storyTitle}`;
+    this.image = `https://img.youtube.com/vi/${data[i].videoLink}/hqdefault.jpg`;
+    this.active = false;
+  } 
+}
+
+export const episodes = [];
+
+for(let i = 0; i < seasonOne.length; i++) {
+  episodes[i] = new EpisodeTile(seasonOne, i);
+}

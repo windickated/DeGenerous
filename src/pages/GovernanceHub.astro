@@ -2,7 +2,7 @@
 import Display from "../components/GovernanceHub/display.astro"
 import Console from "../components/GovernanceHub/console.astro"
 import Episodespanel from "../components/GovernanceHub/episodespanel.astro";
-import Story from "../components/GovernanceHub/story.astro";
+import Story from "../components/GovernanceHub/story.svelte";
 import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 ---
 
@@ -21,14 +21,12 @@ import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 
     <Display />
 
-		<Story storyNumber="12" />
-
-		<Episodespanel />
-
-		<Console />
+		<Episodespanel storyNumber="12" />
 
 		<Sidepanel nftNumbers={[12, 35, 67, 228]} />
 
+		<Console />
+		
 
 		<script>
 			const display:any = document.getElementById('display');
