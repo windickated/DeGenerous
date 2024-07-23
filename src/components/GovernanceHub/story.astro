@@ -32,7 +32,11 @@ function getStoryDuration() {
     <h1 class="header">{seasonTitle}: {storyNode.storyTitle} - Episode {storyNode.episode}</h1>
     <h2 class="duration" data-videolink={storyNode.videoLink}>{getStoryDuration()}</h2>
   </div>
-  <div class="text">{storyNode.storyText}</div>
+  <div class="text">
+    {storyNode.storyText.map((paragraph) => (
+      <p class="story-p">{paragraph}</p>
+    ))}
+  </div>
   <ul class="options">
     {storyNode.storyOptions.map((option) => (
       <li class="option">{option}</li>

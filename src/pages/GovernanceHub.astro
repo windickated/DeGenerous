@@ -1,6 +1,7 @@
 ---
 import Display from "../components/GovernanceHub/display.astro"
 import Console from "../components/GovernanceHub/console.astro"
+import Episodespanel from "../components/GovernanceHub/episodespanel.astro";
 import Story from "../components/GovernanceHub/story.astro";
 import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 ---
@@ -20,7 +21,9 @@ import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 
     <Display />
 
-		<Story  />
+		<Story storyNumber="12" />
+
+		<Episodespanel />
 
 		<Console />
 
@@ -32,6 +35,7 @@ import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
   		const displayBG:any = document.getElementById('display-bg');
 			const console:any = document.getElementById('console');
 			const sidePanelIcon:any = document.querySelector('.panel-icon');
+			const otherEpisodesIcon:any = document.querySelector('.story-nodes-icon');
 
 			window.addEventListener('load', resize);
   		window.addEventListener('resize', resize);
@@ -42,11 +46,13 @@ import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 					displayBG.src = '/public/governanceHubAssets/displayMobileBG.avif';
 					console.src = '/public/GovernanceHubAssets/consoleMobile.avif';
 					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconMobileOpen.png';
+					otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen.png';
 				} else {
 					display.src = '/public/governanceHubAssets/display.avif';
 					displayBG.src = '/public/governanceHubAssets/displayBG.avif';
 					console.src = '/public/GovernanceHubAssets/console.avif';
 					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconPCOpen.png';
+					otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesPCOpen.png';
 				}
 			}
 		</script>

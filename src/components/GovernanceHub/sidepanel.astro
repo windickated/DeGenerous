@@ -22,8 +22,8 @@ for(let i in nftNumbers) {
 
 
 <section class="side-panel-container">
-  <img src="/public/GovernanceHubAssets/sideIconPCOpen.png" class="panel-icon" />
-  <div class="side-panel" data-nftnumbers={nftNumbers} data-walletconnected={walletConnected}>
+  <img src="/public/GovernanceHubAssets/sideIconPCOpen.png" class="panel-icon" data-walletconnected={walletConnected} />
+  <div class="side-panel">
     <div class="wallet-container">
       <p class="user-wallet"></p>
       <p class="wallet-legend">Connect Web3 Wallet:</p>
@@ -51,13 +51,12 @@ for(let i in nftNumbers) {
 
 
 <script>
-  const panelIcon:any = document.querySelector('.panel-icon');
-  const panelBar:any = document.querySelector('.side-panel');
-  const panelBG:any = document.querySelector('.side-panel-bg');
-  const walletButton:any = document.querySelector('.wallet-connect');
-  let walletConnected = panelBar.dataset.walletconnected;
+  import { sidePanel, sidePanelIcon } from "./data/panels";
 
-  panelIcon.addEventListener('click', () => {
+  const walletButton:any = document.querySelector('.wallet-connect');
+  let walletConnected = sidePanelIcon.dataset.walletconnected;
+
+  sidePanelIcon.addEventListener('click', () => {
     if(sidePanel.panelState) {
       sidePanel.close();
     } else {
@@ -76,115 +75,6 @@ for(let i in nftNumbers) {
       walletButton.style.backgroundColor = '#161E5F';
     }
   })
-
-
-  // Side panel object
-  let interval:any;
-  let finalPosition:number;
-  export const sidePanel = {
-    panelState: false,
-    open() {
-      this.changeIconState();
-      //otherEpisodesIconContainer.style.zIndex = '19';
-      document.body.style.overflowY = 'hidden';
-      panelBG.style.display = 'block';
-      finalPosition = 0;
-      clearInterval(interval);
-      if(window.outerWidth <= 600) {
-        //otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen-Inactive.png';
-        // if(episodesPanel.panelState) {
-        //   episodesPanel.panelState = false;
-        //   otherEpisodesContainer.style.top = '-80%';
-        //   panelBar.style.top = '0';
-        // } else {
-        interval = setInterval(slidePanelMobile, 5);
-        //}
-      } else {
-        //closePanel(episodesPanel);
-        interval = setInterval(slidePanelPC, 5);
-      }
-      this.panelState = true;
-    },
-    close() {
-      this.changeIconState();
-      document.body.style.overflowY = 'auto';
-      panelBG.style.display = 'none';
-      finalPosition = 80;
-      clearInterval(interval);
-      if(window.outerWidth <= 600) {
-        //otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen.png';
-        interval = setInterval(slidePanelMobile, 5);
-      } else {
-        interval = setInterval(slidePanelPC, 5);
-      }
-      this.panelState = false;
-    },
-    changeIconState() {
-      if(window.outerWidth <= 600) {
-        if(this.panelState) {
-          panelIcon.src = '/public/GovernanceHubAssets/sideIconMobileOpen.png';
-        } else {
-          panelIcon.src = '/public/GovernanceHubAssets/sideIconMobileClose.png';
-        }
-      } else {
-        if(this.panelState) {
-          panelIcon.src = '/public/GovernanceHubAssets/sideIconPCOpen.png';
-        } else {
-          panelIcon.src = '/public/GovernanceHubAssets/sideIconPCClose.png';
-        }
-      }
-    }
-  }
-
-
-  // Utility functions for panel object
-
-  function slidePanelPC() {
-    if(sidePanel.panelState) {
-      if(finalPosition == 80) {
-        clearInterval(interval);
-      } else {
-        finalPosition += 4;
-        panelIcon.style.right = `${finalPosition}vw`;
-        panelBar.style.right = `${finalPosition - 80}vw`;
-      }
-    } else {
-      if(finalPosition == 0) {
-        clearInterval(interval);
-      } else {
-        finalPosition -= 4;
-        panelIcon.style.right = `${finalPosition}vw`;
-        panelBar.style.right = `${finalPosition - 80}vw`;
-      }
-    }
-  }
-
-  function slidePanelMobile() {
-    if(sidePanel.panelState) {
-      if(finalPosition == 80) {
-        clearInterval(interval);
-      } else {
-        finalPosition += 4;
-        panelIcon.style.top = `${finalPosition}%`;
-        panelBar.style.top = `${finalPosition - 80}%`;
-        // Moving another icon down with opening panel
-        // if(!episodesPanel.panelState) {
-        //   otherEpisodesIconContainer.style.top = `${finalPosition}%`;
-        // }
-      }
-    } else {
-      if(finalPosition == 0) {
-        clearInterval(interval);
-      } else {
-        finalPosition -= 4;
-        panelIcon.style.top = `${finalPosition}%`;
-        panelBar.style.top = `${finalPosition - 80}%`;
-        // if(!episodesPanel.panelState) {
-        //   otherEpisodesIconContainer.style.top = `${finalPosition}%`;
-        // }
-      }
-    }
-  }
 </script>
 
 
