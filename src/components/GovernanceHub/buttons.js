@@ -21,34 +21,34 @@ export const consoleButtons = [
     image: "/public/governanceHubAssets/conexus.png",
     hover: "/public/governanceHubAssets/conexus-hover.png",
     click: "/public/governanceHubAssets/conexus-active.png",
-    class: "console-btn big"
+    size: "big"
   },
   {
     id: "back",
     image: "/public/governanceHubAssets/back.png",
     hover: "/public/governanceHubAssets/back-hover.png",
     click: "/public/governanceHubAssets/back-active.png",
-    class: "console-btn small"
+    size: "small"
   },
   {
     id: "omnihub",
     image: "/public/governanceHubAssets/omnihub.png",
     hover: "/public/governanceHubAssets/omnihub-hover.png",
     click: "/public/governanceHubAssets/omnihub-active.png",
-    class: "console-btn big"
+    size: "big"
   },
   {
     id: "forward",
     image: "/public/governanceHubAssets/forward.png",
     hover: "/public/governanceHubAssets/forward-hover.png",
     click: "/public/governanceHubAssets/forward-active.png",
-    class: "console-btn small"
+    size: "small"
   },
   {
     id: "sagaverse",
     image: "/public/governanceHubAssets/sagaverse.png",
     hover: "/public/governanceHubAssets/sagaverse-hover.png",
     click: "/public/governanceHubAssets/sagaverse-active.png",
-    class: "console-btn big"
+    size: "big"
   }
 ]

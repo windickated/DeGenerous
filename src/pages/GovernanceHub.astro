@@ -1,6 +1,7 @@
 ---
 import Display from "../components/GovernanceHub/display.astro"
 import Console from "../components/GovernanceHub/console.astro"
+import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
 ---
 
 
@@ -20,11 +21,14 @@ import Console from "../components/GovernanceHub/console.astro"
 
 		<Console />
 
+		<Sidepanel nftNumbers={[12, 35, 67, 228]} />
+
 
 		<script>
 			const display:any = document.getElementById('display');
   		const displayBG:any = document.getElementById('display-bg');
 			const console:any = document.getElementById('console');
+			const sidePanelIcon:any = document.querySelector('.panel-icon');
 
 			window.addEventListener('load', resize);
   		window.addEventListener('resize', resize);
@@ -34,20 +38,26 @@ import Console from "../components/GovernanceHub/console.astro"
 					display.src = '/public/governanceHubAssets/displayMobile.avif';
 					displayBG.src = '/public/governanceHubAssets/displayMobileBG.avif';
 					console.src = '/public/GovernanceHubAssets/consoleMobile.avif';
+					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconMobileOpen.png';
 				} else {
 					display.src = '/public/governanceHubAssets/display.avif';
 					displayBG.src = '/public/governanceHubAssets/displayBG.avif';
 					console.src = '/public/GovernanceHubAssets/console.avif';
+					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconPCOpen.png';
 				}
 			}
 		</script>
 
 
-    <style>
+    <style is:global>
       html {
         background-image: url("/public/governanceHubAssets/spaceshipBG.avif"), linear-gradient(#000000, #161E5F);
 				padding-bottom: 0;
       }
+
+			img {
+				width: 100%;
+			}
     </style>
   </body>
 </html>

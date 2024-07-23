@@ -1,0 +1,395 @@
+---
+var { nftNumbers, walletConnected = true } = Astro.props;
+
+class Tile {
+  constructor(data, i) {
+    this.name = data[i].name;
+    this.image = data[i].image;
+    this.class = data[i].attributes[5].value;
+    this.clicked = false;
+    this.active = true;
+  } 
+}
+const potentials = [];
+const metadata = [];
+
+for(let i in nftNumbers) {
+  const response = await fetch(`https://api.degenerousdao.com/nft/data/${nftNumbers[i]}`);
+  metadata[i] = await response.json();
+  potentials[i] = new Tile(metadata, i);
+}
+---
+
+
+<section class="side-panel-container">
+  <img src="/public/GovernanceHubAssets/sideIconPCOpen.png" class="panel-icon" />
+  <div class="side-panel" data-nftnumbers={nftNumbers} data-walletconnected={walletConnected}>
+    <div class="wallet-container">
+      <p class="user-wallet"></p>
+      <p class="wallet-legend">Connect Web3 Wallet:</p>
+      <button class="wallet-connect">Connect wallet</button>
+    </div>
+    
+    <div class="tiles-legend">
+      <p class="tiles-total">Total NFTs: {potentials.length}</p>
+      <p class="tiles-selected">Selected NFTs: 0</p>
+    </div>
+    <div class="tiles-container">
+      {walletConnected &&
+        potentials.map((nft) => (
+          <div class="tile" id={nft.name}>
+            <img class="tile-image" src={nft.image} />
+            <p class="tile-name">{nft.name}</p>
+            <p class="tile-class">{nft.class}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+<div class="side-panel-bg"></div>
+
+
+<script>
+  const panelIcon:any = document.querySelector('.panel-icon');
+  const panelBar:any = document.querySelector('.side-panel');
+  const panelBG:any = document.querySelector('.side-panel-bg');
+  const walletButton:any = document.querySelector('.wallet-connect');
+  let walletConnected = panelBar.dataset.walletconnected;
+
+  panelIcon.addEventListener('click', () => {
+    if(sidePanel.panelState) {
+      sidePanel.close();
+    } else {
+      sidePanel.open();
+    }
+  })
+
+  walletButton.addEventListener('mouseover', () => {
+    if(!walletConnected) {
+      walletButton.style.backgroundColor = 'rgba(22, 30, 95, 0.75)';
+    }
+  })
+
+  walletButton.addEventListener('mouseout', () => {
+    if(!walletConnected) {
+      walletButton.style.backgroundColor = '#161E5F';
+    }
+  })
+
+
+  // Side panel object
+  let interval:any;
+  let finalPosition:number;
+  export const sidePanel = {
+    panelState: false,
+    open() {
+      this.changeIconState();
+      //otherEpisodesIconContainer.style.zIndex = '19';
+      document.body.style.overflowY = 'hidden';
+      panelBG.style.display = 'block';
+      finalPosition = 0;
+      clearInterval(interval);
+      if(window.outerWidth <= 600) {
+        //otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen-Inactive.png';
+        // if(episodesPanel.panelState) {
+        //   episodesPanel.panelState = false;
+        //   otherEpisodesContainer.style.top = '-80%';
+        //   panelBar.style.top = '0';
+        // } else {
+        interval = setInterval(slidePanelMobile, 5);
+        //}
+      } else {
+        //closePanel(episodesPanel);
+        interval = setInterval(slidePanelPC, 5);
+      }
+      this.panelState = true;
+    },
+    close() {
+      this.changeIconState();
+      document.body.style.overflowY = 'auto';
+      panelBG.style.display = 'none';
+      finalPosition = 80;
+      clearInterval(interval);
+      if(window.outerWidth <= 600) {
+        //otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen.png';
+        interval = setInterval(slidePanelMobile, 5);
+      } else {
+        interval = setInterval(slidePanelPC, 5);
+      }
+      this.panelState = false;
+    },
+    changeIconState() {
+      if(window.outerWidth <= 600) {
+        if(this.panelState) {
+          panelIcon.src = '/public/GovernanceHubAssets/sideIconMobileOpen.png';
+        } else {
+          panelIcon.src = '/public/GovernanceHubAssets/sideIconMobileClose.png';
+        }
+      } else {
+        if(this.panelState) {
+          panelIcon.src = '/public/GovernanceHubAssets/sideIconPCOpen.png';
+        } else {
+          panelIcon.src = '/public/GovernanceHubAssets/sideIconPCClose.png';
+        }
+      }
+    }
+  }
+
+
+  // Utility functions for panel object
+
+  function slidePanelPC() {
+    if(sidePanel.panelState) {
+      if(finalPosition == 80) {
+        clearInterval(interval);
+      } else {
+        finalPosition += 4;
+        panelIcon.style.right = `${finalPosition}vw`;
+        panelBar.style.right = `${finalPosition - 80}vw`;
+      }
+    } else {
+      if(finalPosition == 0) {
+        clearInterval(interval);
+      } else {
+        finalPosition -= 4;
+        panelIcon.style.right = `${finalPosition}vw`;
+        panelBar.style.right = `${finalPosition - 80}vw`;
+      }
+    }
+  }
+
+  function slidePanelMobile() {
+    if(sidePanel.panelState) {
+      if(finalPosition == 80) {
+        clearInterval(interval);
+      } else {
+        finalPosition += 4;
+        panelIcon.style.top = `${finalPosition}%`;
+        panelBar.style.top = `${finalPosition - 80}%`;
+        // Moving another icon down with opening panel
+        // if(!episodesPanel.panelState) {
+        //   otherEpisodesIconContainer.style.top = `${finalPosition}%`;
+        // }
+      }
+    } else {
+      if(finalPosition == 0) {
+        clearInterval(interval);
+      } else {
+        finalPosition -= 4;
+        panelIcon.style.top = `${finalPosition}%`;
+        panelBar.style.top = `${finalPosition - 80}%`;
+        // if(!episodesPanel.panelState) {
+        //   otherEpisodesIconContainer.style.top = `${finalPosition}%`;
+        // }
+      }
+    }
+  }
+</script>
+
+
+<style>
+  .panel-icon {
+    position: fixed;
+    z-index: 21;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: 15vw;
+    filter: drop-shadow(-0.1vw 0.1vw 0.5vw #010020);
+    cursor: pointer;
+  }
+
+  .side-panel {
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: auto;
+    right: -80vw;
+    height: 100%;
+    width: 80vw;
+    background-image: url('/public/GovernanceHubAssets/sideBorder.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(1, 0, 32, 0.5);
+    -webkit-backdrop-filter: blur(1vw);
+    backdrop-filter: blur(1vw);
+    filter: drop-shadow(-0.1vw 0.1vw 0.5vw #010020);
+    overflow-y: scroll;
+  }
+
+  .side-panel::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .side-panel-bg {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .tiles-legend {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
+  .tiles-total, .tiles-selected {
+    color: #33E2E6;
+    -webkit-text-stroke: 0.1vw #33E2E6;
+    padding-top: 2.5vw;
+    padding-bottom: 1vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    font-size: 2vw;
+  }
+
+  .tiles-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw 2vw;
+  }
+
+  .tile {
+    position: relative;
+    box-sizing: border-box;
+    width: 17vw;
+    height: 23vw;
+    background-color: rgba(22, 30, 95, 0.75);
+    margin: 1vw;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1.5vw;
+    padding-bottom: 1vw;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    filter: drop-shadow(0 0 0.1vw #010020);
+  }
+
+  .tile-image {
+    object-fit: cover;
+    height: 70%;
+    width: 95%;
+    margin: 2.5%;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1vw;
+  }
+
+  .tile-name {
+    font-size: 2vw;
+    line-height: 2.5vw;
+  }
+
+  .tile-class {
+    font-size: 1.5vw;
+    line-height: 2.5vw;
+  }
+
+  .wallet-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(51, 226, 230, 0.5);
+    filter: drop-shadow(0 0 1vw rgba(51, 226, 230, 0.5));
+    margin: 3vw 5vw 1vw 5vw;
+    padding: 1vw 2vw;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1.5vw;
+  }
+
+  .wallet-legend {
+    color: #161E5F;
+    font-size: 2.5vw;
+    filter: drop-shadow(0 0 0.05vw #010020);
+    text-align: right;
+    padding-right: 2.5vw;
+  }
+
+  .user-wallet {
+    display: none;
+    padding: 0 3vw;
+    font-size: 2vw;
+    color: rgba(51, 226, 230, 1);
+    background-color: rgba(51, 226, 230, 0.2);
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1vw;
+    line-height: 3.5vw;
+  }
+
+  .wallet-connect {
+    height: 3.5vw;
+    width: 18vw;
+    border: 0.05vw solid #33E2E6;
+    border-radius: 1vw;
+    font-size: 2vw;
+    background-color: #161E5F;
+    color: #33E2E6;
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .panel-icon {
+      width: 90%;
+      top: 0;
+      filter: drop-shadow(0 0.5vw 1vw #010020);
+    }
+
+    .side-panel {
+      width: 100vw;
+      height: 80%;
+      top: -80%;
+      right: auto;
+      left: 0;
+      background-image: none;
+    }
+
+    .tiles-total {
+      font-size: inherit;
+    }
+
+    .tiles-selected {
+      font-size: inherit;
+    }
+
+    .tile {
+      width: 46vw;
+      height: 60vw;
+      padding-bottom: 4vw;
+    }
+
+    .tile-name {
+      font-size: 1.2em;
+    }
+
+    .tile-class {
+      font-size: 0.9em;
+    }
+
+    .wallet-container {
+      margin-top: 6vw;
+      margin-bottom: 2vw;
+      height: 14vw;
+    }
+
+    .wallet-legend {
+      font-size: inherit;
+    }
+
+    .user-wallet {
+      font-size: inherit;
+      padding: 2vw 3vw;
+    }
+
+    .wallet-connect {
+      font-size: inherit;
+      width: 38vw;
+      height: 10vw;
+    }
+  }
+</style>

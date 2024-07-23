@@ -6,7 +6,7 @@ import { consoleButtons } from "./buttons"
 <section class="bottom">
   <div class="console-buttons">
     {consoleButtons.map((button) => (
-      <img src={button.image} data-name={button.id} class={button.class} />
+      <img src={button.image} data-name={button.id} class:list={['console-btn', button.size]} />
     ))}
   </div>
   <img src="/public/GovernanceHubAssets/console.avif" alt="Console" id="console"></img>
@@ -16,7 +16,7 @@ import { consoleButtons } from "./buttons"
 <script>
   const buttons:any = document.querySelectorAll('.console-btn');
 
-  buttons.forEach( (button) => {
+  buttons.forEach((button:any) => {
     button.addEventListener('mouseenter', () => {
       button.src = `/public/GovernanceHubAssets/${button.dataset.name}-hover.png`;
     })
@@ -67,10 +67,6 @@ import { consoleButtons } from "./buttons"
 
 
 <style>
-  img {
-    width: 100%;
-  }
-
   .bottom {
     position: relative;
     display: block;

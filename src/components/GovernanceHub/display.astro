@@ -22,7 +22,7 @@
   const formatButton:any = document.querySelector('.format');
   const voteButton:any = document.querySelector('.vote');
 
-  
+
   formatButton.addEventListener('mouseenter', () => {
     if(formatButton.src.includes(displayButtons[0].video)) {
         formatButton.src = displayButtons[0].textHover;
@@ -73,10 +73,6 @@
 
 
 <style>
-  img {
-    width: 100%;
-  }
-
   .top {
     position: relative;
     display: block;
@@ -123,8 +119,13 @@
     .format {
       display: none;
     }
+
     .vote {
       display: none;
+    }
+
+    #youtube {
+      visibility: visible;
     }
   }
 </style>
