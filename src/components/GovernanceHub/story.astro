@@ -1,15 +1,237 @@
 ---
+import seasonOne from "./data/episodes";
 
+const { storyNumber = 1, seasonTitle = 'Dischordian Saga' } = Astro.props;
+
+const storyNode = seasonOne[storyNumber - 1];
+
+
+function getStoryDuration() {
+  let dateStart = new Date(storyNode.storyDuration[0]);
+  let dateEnd = new Date(storyNode.storyDuration[1]);
+
+  let dayStart = ('0' + dateStart.getDate()).slice(-2);
+  let dayEnd = ('0' + dateEnd.getDate()).slice(-2);
+  let monthStart = ('0' + (dateStart.getMonth() + 1)).slice(-2);
+  let monthEnd = ('0' + (dateEnd.getMonth() + 1)).slice(-2);
+  let yearStart = dateStart.getFullYear();
+  let yearEnd = dateEnd.getFullYear();
+
+  let fullDateStart = `${dayStart}.${monthStart}.${yearStart}`;
+  let fullDateEnd = `${dayEnd}.${monthEnd}.${yearEnd}`;
+
+  let fullDate = 'Duration: ' + fullDateStart + ' - ' + fullDateEnd;
+
+  return fullDate;
+}
 ---
 
 
 <section class="middle">
   <div class="legend">
-    <h1 class="header"></h1>
-    <h2 class="duration"></h2>
+    <h1 class="header">{seasonTitle}: {storyNode.storyTitle} - Episode {storyNode.episode}</h1>
+    <h2 class="duration" data-videolink={storyNode.videoLink}>{getStoryDuration()}</h2>
   </div>
-  <div class="text"></div>
-  <ul class="options"></ul>
+  <div class="text">{storyNode.storyText}</div>
+  <ul class="options">
+    {storyNode.storyOptions.map((option) => (
+      <li class="option">{option}</li>
+    ))}
+  </ul>
 
   <span class="voting-ended"></span>
 </section>
+
+
+<script>
+  const storyDuration:any = document.querySelector('.duration');
+  const storyVideo:any = document.getElementById('youtube');
+  storyVideo.src = `https://www.youtube.com/embed/${storyDuration.dataset.videolink}`;
+</script>
+
+
+<style>
+  .middle {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+  }
+
+  .legend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(1, 0, 32, 0.6);
+    -webkit-backdrop-filter: blur(1vw);
+    backdrop-filter: blur(1vw);
+    margin-top: 2vw;
+    margin-bottom: -4vw;
+    padding: 1.5vw;
+    border: 0.1vw solid rgba(51, 226, 230, 0.5);
+    border-radius: 2.5vw;
+  }
+
+  .header {
+    font-size: 3vw;
+    text-align: center;
+    -webkit-text-stroke: 0.03vw #33E2E6;
+    filter: drop-shadow(0 0 0.1vw #33E2E6);
+    line-height: 1.6em;
+    margin-bottom: 2vw;
+  }
+
+  .duration {
+    font-size: 2vw;
+    text-align: center;
+    -webkit-text-stroke: 0.03vw #33E2E6;
+    filter: drop-shadow(0 0 0.1vw #33E2E6);
+    color: #bebebe;
+  }
+
+  .story-p {
+    padding-bottom: 2vw;
+  }
+
+  .text {
+    position: absolute;
+    top: 10.1vw;
+    width: 80.6vw;
+    left: 7.7vw;
+    overflow-y: scroll;
+    height: 43.6vw;
+    font-size: 2vw;
+    line-height: 3vw;
+    margin-bottom: auto;
+    padding: 2vw;
+    background-color: none;
+    backdrop-filter: none;
+    border: none;
+    border-radius: auto;
+    color: #bebebe;
+    visibility: hidden;
+  }
+
+  .text::-webkit-scrollbar {
+    width: 0.3vw;
+    border: none;
+  }
+
+  .text::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .text::-webkit-scrollbar-thumb {
+    background-color: rgba(51, 226, 230, 0.5);
+    border-radius: 0.5vw;
+  }
+
+  .options {
+    position: absolute;
+    top: 59vw;
+    width: 59.8vw;
+    height: 23vw;
+    white-space: nowrap;
+    list-style: circle inside;
+    margin: 2vw;
+    margin-left: 2vw;
+    margin-bottom: auto;
+    padding-left: 3vw;
+    padding-bottom: auto;
+    font-size: 1.1em;
+    line-height: 2em;
+    overflow-y: hidden;
+    background-color: none;
+    backdrop-filter: none;
+    border: none;
+    border-radius: none;
+  }
+
+  .options::-webkit-scrollbar {
+    height: 0.5vw;
+  }
+
+  .options::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .options::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(51, 226, 230, 0.5), rgba(0, 0, 0, 0));
+    border-radius: 0.5vw;
+  }
+
+  .option {
+    -webkit-text-stroke: 0.01vw #33E2E6;
+    cursor: pointer;
+  }
+
+  .voting-ended {
+    margin-top: 8vw;
+    margin-bottom: -4vw;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-size: 3vw;
+    filter: drop-shadow(0 0 1vw 5vw #33E2E6);
+    -webkit-text-stroke: 0.2vw rgba(51, 226, 230, 0.5);
+  }
+
+
+  @media only screen and (max-width: 600px) {
+    .legend {
+      margin-bottom: 2vw;
+    }
+    .header {
+      font-size: 1.2em;
+    }
+    .duration {
+      font-size: 1.1em;
+    }
+    .text {
+      visibility: visible;
+    }
+
+    .voting-ended {
+      font-size: 1.2em;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .text {
+      position: static;
+      top: auto;
+      width: auto;
+      left: auto;
+      overflow-y: auto;
+      height: auto;
+      font-size: inherit;
+      line-height: inherit;
+      margin-bottom: 2vw;
+      background-color: rgba(22, 30, 95, 0.75);
+      -webkit-backdrop-filter: blur(2vw);
+      backdrop-filter: blur(2vw);
+      border: 0.1vw solid rgba(51, 226, 230, 0.5);
+      border-radius: 2.5vw;
+      padding: 3vw;
+      visibility: visible;
+    }
+
+    .options {
+      position: static;
+      top: auto;
+      width: 91vw;
+      height: auto;
+      font-size: 1.1em;
+      white-space: wrap;
+      margin-left: -2vw;
+      margin-bottom: 4vw;
+      background-color: rgba(1, 0, 32, 0.6);
+      -webkit-backdrop-filter: blur(1vw);
+      backdrop-filter: blur(1vw);
+      border: 0.1vw solid rgba(51, 226, 230, 0.5);
+      border-radius: 2.5vw;
+      padding-top: 2vw;
+      padding-bottom: 2vw;
+    }
+  }
+</style>
