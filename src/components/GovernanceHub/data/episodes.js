@@ -267,9 +267,28 @@ class EpisodeTile {
     this.active = false;
   } 
 }
-
 export const episodes = [];
 
 for(let i = 0; i < seasonOne.length; i++) {
   episodes[i] = new EpisodeTile(seasonOne, i);
+}
+
+
+export function getStoryDuration(number) {
+  let dateStart = new Date(seasonOne[number].storyDuration[0]);
+  let dateEnd = new Date(seasonOne[number].storyDuration[1]);
+
+  let dayStart = ('0' + dateStart.getDate()).slice(-2);
+  let dayEnd = ('0' + dateEnd.getDate()).slice(-2);
+  let monthStart = ('0' + (dateStart.getMonth() + 1)).slice(-2);
+  let monthEnd = ('0' + (dateEnd.getMonth() + 1)).slice(-2);
+  let yearStart = dateStart.getFullYear();
+  let yearEnd = dateEnd.getFullYear();
+
+  let fullDateStart = `${dayStart}.${monthStart}.${yearStart}`;
+  let fullDateEnd = `${dayEnd}.${monthEnd}.${yearEnd}`;
+
+  let fullDate = 'Duration: ' + fullDateStart + ' - ' + fullDateEnd;
+
+  return fullDate;
 }

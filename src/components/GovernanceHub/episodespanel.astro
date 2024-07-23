@@ -1,44 +1,22 @@
 ---
-import Story from "./story.svelte";
-import { seasonOne, episodes } from "./data/episodes";
+import { seasonOne, episodes, getStoryDuration } from "./data/episodes";
 
-const { storyNumber = 1, seasonTitle = 'Dischordian Saga' } = Astro.props;
-
-const storyNode = seasonOne[storyNumber - 1];
-
-function getStoryDuration() {
-  let dateStart = new Date(storyNode.storyDuration[0]);
-  let dateEnd = new Date(storyNode.storyDuration[1]);
-
-  let dayStart = ('0' + dateStart.getDate()).slice(-2);
-  let dayEnd = ('0' + dateEnd.getDate()).slice(-2);
-  let monthStart = ('0' + (dateStart.getMonth() + 1)).slice(-2);
-  let monthEnd = ('0' + (dateEnd.getMonth() + 1)).slice(-2);
-  let yearStart = dateStart.getFullYear();
-  let yearEnd = dateEnd.getFullYear();
-
-  let fullDateStart = `${dayStart}.${monthStart}.${yearStart}`;
-  let fullDateEnd = `${dayEnd}.${monthEnd}.${yearEnd}`;
-
-  let fullDate = 'Duration: ' + fullDateStart + ' - ' + fullDateEnd;
-
-  return fullDate;
-}
+const { storyNumber = 1 } = Astro.props;
 ---
 
 
-<section class="middle">
+<section class="story">
   <div class="legend">
-    <h1 class="header">{seasonTitle}: {storyNode.storyTitle} - Episode {storyNode.episode}</h1>
-    <h2 class="duration" data-videolink={storyNode.videoLink} data-storynumber={storyNumber} >{getStoryDuration()}</h2>
+    <h1 class="header">Dischordian Saga: {seasonOne[storyNumber - 1].storyTitle} - Episode {seasonOne[storyNumber - 1].episode}</h1>
+    <h2 class="duration">{getStoryDuration(storyNumber - 1)}</h2>
   </div>
   <div class="text">
-    {storyNode.storyText.map((paragraph) => (
+    {seasonOne[storyNumber - 1].storyText.map((paragraph) => (
       <p class="story-p">{paragraph}</p>
     ))}
   </div>
   <ul class="options">
-    {storyNode.storyOptions.map((option) => (
+    {seasonOne[storyNumber - 1].storyOptions.map((option) => (
       <li class="option">{option}</li>
     ))}
   </ul>
@@ -65,11 +43,14 @@ function getStoryDuration() {
 
 <script>
   import { episodesPanel, otherEpisodesIcon } from "./data/panels";
-  import { episodes } from "./data/episodes";
+  import { seasonOne, episodes, getStoryDuration } from "./data/episodes";
 
-  const storyDuration:any = document.querySelector('.duration');
-  const storyVideo:any = document.getElementById('youtube');
-  storyVideo.src = `https://www.youtube.com/embed/${storyDuration.dataset.videolink}`;
+  const header = document.querySelector('.header');
+  const duration = document.querySelector('.duration');
+  const video = document.getElementById('youtube');
+  const text = document.querySelector('.text');
+  const options = document.querySelector('.options');
+
   const storyNodeTiles = document.querySelectorAll('.story-node-tile');
 
   otherEpisodesIcon.addEventListener('click', () => {
@@ -101,11 +82,12 @@ function getStoryDuration() {
   })
 
   // Make selected episode active
-  export function activeEpisode(i) {
+  function activeEpisode(i) {
     storyNodeTiles[i].style.color = '#010020';
     storyNodeTiles[i].style.filter = 'drop-shadow(0 0 1vw rgba(51, 226, 230, 0.8))';
     inactiveEpisodes();
     episodes[i].active = true;
+    updateStory(i + 1);
   }
 
   // Make inactive all other tiles
@@ -118,6 +100,25 @@ function getStoryDuration() {
         tile.style.filter = 'none';
       }
     })
+  }
+
+  // Render new story
+  function updateStory(number) {
+    header.innerHTML = 'Dischordian Saga: ' + seasonOne[number].storyTitle + ' - Episode ' + number;
+    duration.innerHTML = getStoryDuration(number);
+    video.src = `https://www.youtube.com/embed/${seasonOne[number].videoLink}`;
+
+    let html = '';
+    seasonOne[number].storyText.forEach((paragraph) => {
+      html += `<p class="story-p">${paragraph}</p>`
+    })
+    text.innerHTML = html;
+
+    html = '';
+    seasonOne[number].storyOptions.forEach((option) => {
+      html += `<li class="option">${option}</li>`;
+    })
+    options.innerHTML = html;
   }
 </script>
 
@@ -196,7 +197,7 @@ function getStoryDuration() {
     height: 20vw;
   }
 
-  .middle {
+  .story {
     display: flex;
     flex-direction: column;
     width: 90%;
