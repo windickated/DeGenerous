@@ -1,0 +1,53 @@
+---
+import Display from "../components/GovernanceHub/display.astro"
+import Console from "../components/GovernanceHub/console.astro"
+---
+
+
+<html lang="en">
+	<head>
+		<title>Governance Hub | DeGenerous</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="stylesheet" href="/src/styles/global.css">
+		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	</head>
+	<body>
+
+
+    <Display />
+
+		<Console />
+
+
+		<script>
+			const display:any = document.getElementById('display');
+  		const displayBG:any = document.getElementById('display-bg');
+			const console:any = document.getElementById('console');
+
+			window.addEventListener('load', resize);
+  		window.addEventListener('resize', resize);
+
+			function resize() {
+				if(window.outerWidth <= 600) {
+					display.src = '/public/governanceHubAssets/displayMobile.avif';
+					displayBG.src = '/public/governanceHubAssets/displayMobileBG.avif';
+					console.src = '/public/GovernanceHubAssets/consoleMobile.avif';
+				} else {
+					display.src = '/public/governanceHubAssets/display.avif';
+					displayBG.src = '/public/governanceHubAssets/displayBG.avif';
+					console.src = '/public/GovernanceHubAssets/console.avif';
+				}
+			}
+		</script>
+
+
+    <style>
+      html {
+        background-image: url("/public/governanceHubAssets/spaceshipBG.avif"), linear-gradient(#000000, #161E5F);
+				padding-bottom: 0;
+      }
+    </style>
+  </body>
+</html>
