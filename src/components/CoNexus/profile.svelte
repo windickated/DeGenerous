@@ -100,7 +100,7 @@
     userPassword = '';
     refCode = '';
     newUserPasswordConfirmation = '';
-    if(!signUp) {
+    if(!signUp && !isLogged) {
       loginValidationWarning.style.display = 'none';
       refCodeValidationWarning.style.display = 'none';
     }
