@@ -1,72 +1,62 @@
----
-import Display from "../components/GovernanceHub/display.astro"
-import Console from "../components/GovernanceHub/console.astro"
-import Episodespanel from "../components/GovernanceHub/episodespanel.astro";
-import Story from "../components/GovernanceHub/story.svelte";
-import Sidepanel from "../components/GovernanceHub/sidepanel.astro";
-
-const storyNumber = 12;
----
-
-
 <html lang="en">
-	<head>
-		<title>Governance Hub | DeGenerous</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="stylesheet" href="/src/styles/global.css">
-		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-	</head>
-	<body>
+  <head>
+    <title>Governance Hub</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  </head>
 
+  <body>
+    
+    <section class="top">
+      <div class="display-buttons"></div>
+      <div class="display-image"></div>
+      <div class="video">
+        <iframe id="youtube" title="YouTube" allowfullscreen></iframe>
+      </div>
+    </section>
 
-    <Display {storyNumber} />
+    <section class="middle">
+      <div class="legend">
+        <h1 class="header"></h1>
+        <h2 class="duration"></h2>
+      </div>
+      <div class="text"></div>
+      <ul class="options"></ul>
 
-		<Episodespanel {storyNumber} />
+      <span class="voting-ended"></span>
+    </section>
 
-		<Sidepanel nftNumbers={[12, 35, 67, 228]} />
+    <section class="bottom">
+      <div class="console-buttons"></div>
+      <div class="console-image"></div>
+    </section>
 
-		<Console {storyNumber} />
-		
+    <section class="side-panel-container">
+      <div class="side-icon-container"></div>
+      <div class="side-panel">
+        <div class="wallet-container">
+          <p class="user-wallet"></p>
+          <p class="wallet-legend"></p>
+          <button class="wallet-connect"></button>
+        </div>
+        <div class="tiles-legend"></div>
+        <div class="tiles-container"></div>
+      </div>
+    </section>
+    <div class="side-panel-bg"></div>
 
-		<script>
-			const display:any = document.getElementById('display');
-  		const displayBG:any = document.getElementById('display-bg');
-			const console:any = document.getElementById('console');
-			const sidePanelIcon:any = document.querySelector('.panel-icon');
-			const otherEpisodesIcon:any = document.querySelector('.story-nodes-icon');
+    <section class="other-episodes">
+      <div class="story-nodes-icon"></div>
+      <div class="story-nodes-container">
+        <div class="story-nodes-legend"></div>
+        <div class="story-nodes"></div>
+      </div>
+    </section>
 
-			window.addEventListener('load', resize);
-  		window.addEventListener('resize', resize);
-
-			function resize() {
-				if(window.outerWidth <= 600) {
-					display.src = '/public/governanceHubAssets/displayMobile.avif';
-					displayBG.src = '/public/governanceHubAssets/displayMobileBG.avif';
-					console.src = '/public/GovernanceHubAssets/consoleMobile.avif';
-					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconMobileOpen.png';
-					otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesMobileOpen.png';
-				} else {
-					display.src = '/public/governanceHubAssets/display.avif';
-					displayBG.src = '/public/governanceHubAssets/displayBG.avif';
-					console.src = '/public/GovernanceHubAssets/console.avif';
-					sidePanelIcon.src = '/public/GovernanceHubAssets/sideIconPCOpen.png';
-					otherEpisodesIcon.src = '/public/GovernanceHubAssets/episodesPCOpen.png';
-				}
-			}
-		</script>
-
-
-    <style is:global>
-      html {
-        background-image: url("/public/governanceHubAssets/spaceshipBG.avif"), linear-gradient(#000000, #161E5F);
-				padding-bottom: 0;
-      }
-
-			img {
-				width: 100%;
-			}
-    </style>
+   <script>
+			import "../components/GovernanceHub/script.js"
+	 </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-export const seasonOne = [
+const seasonOne = [
   {
     episode: 1,
     videoLink:"fkHun-QPbKk",
@@ -259,61 +259,4 @@ export const seasonOne = [
   }
 ]
 
-
-class EpisodeTile {
-  constructor(data, i) {
-    this.title = `Episode ${i + 1} - ${data[i].storyTitle}`;
-    this.image = `https://img.youtube.com/vi/${data[i].videoLink}/hqdefault.jpg`;
-    this.active = false;
-  } 
-}
-export const episodes = [];
-
-for(let i = 0; i < seasonOne.length; i++) {
-  episodes[i] = new EpisodeTile(seasonOne, i);
-}
-
-
-export function getStoryDuration(number) {
-  let dateStart = new Date(seasonOne[number].storyDuration[0]);
-  let dateEnd = new Date(seasonOne[number].storyDuration[1]);
-
-  let dayStart = ('0' + dateStart.getDate()).slice(-2);
-  let dayEnd = ('0' + dateEnd.getDate()).slice(-2);
-  let monthStart = ('0' + (dateStart.getMonth() + 1)).slice(-2);
-  let monthEnd = ('0' + (dateEnd.getMonth() + 1)).slice(-2);
-  let yearStart = dateStart.getFullYear();
-  let yearEnd = dateEnd.getFullYear();
-
-  let fullDateStart = `${dayStart}.${monthStart}.${yearStart}`;
-  let fullDateEnd = `${dayEnd}.${monthEnd}.${yearEnd}`;
-
-  let fullDate = 'Duration: ' + fullDateStart + ' - ' + fullDateEnd;
-
-  return fullDate;
-}
-
-
-export function updateStory(number) {
-  const header = document.querySelector('.header');
-  const duration = document.querySelector('.duration');
-  const video = document.getElementById('youtube');
-  const text = document.querySelector('.text');
-  const options = document.querySelector('.options');
-
-  header.innerHTML = 'Dischordian Saga: ' + seasonOne[number].storyTitle + ' - Episode ' + number;
-  duration.innerHTML = getStoryDuration(number);
-  video.src = `https://www.youtube.com/embed/${seasonOne[number].videoLink}`;
-
-  let html = '';
-  seasonOne[number].storyText.forEach((paragraph) => {
-    html += `<p class="story-p">${paragraph}</p>`
-  })
-  text.innerHTML = html;
-
-  html = '';
-  seasonOne[number].storyOptions.forEach((option) => {
-    html += `<li class="option">${option}</li>`;
-  })
-  options.innerHTML = html;
-}
+export default seasonOne;
