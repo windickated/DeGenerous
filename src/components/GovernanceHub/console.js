@@ -7,37 +7,37 @@ export const consolePanel = {
   consoleButtons: [
     {
       id: "conexus",
-      image: "/public/governanceHubAssets/conexus.png",
-      hover: "/public/governanceHubAssets/conexus-hover.png",
-      click: "/public/governanceHubAssets/conexus-active.png",
+      image: "/public/governanceHubAssets/conexus.avif",
+      hover: "/public/governanceHubAssets/conexus-hover.avif",
+      click: "/public/governanceHubAssets/conexus-active.avif",
       size: "big"
     },
     {
       id: "back",
-      image: "/public/governanceHubAssets/back.png",
-      hover: "/public/governanceHubAssets/back-hover.png",
-      click: "/public/governanceHubAssets/back-active.png",
+      image: "/public/governanceHubAssets/back.avif",
+      hover: "/public/governanceHubAssets/back-hover.avif",
+      click: "/public/governanceHubAssets/back-active.avif",
       size: "small"
     },
     {
       id: "omnihub",
-      image: "/public/governanceHubAssets/omnihub.png",
-      hover: "/public/governanceHubAssets/omnihub-hover.png",
-      click: "/public/governanceHubAssets/omnihub-active.png",
+      image: "/public/governanceHubAssets/omnihub.avif",
+      hover: "/public/governanceHubAssets/omnihub-hover.avif",
+      click: "/public/governanceHubAssets/omnihub-active.avif",
       size: "big"
     },
     {
       id: "forward",
-      image: "/public/governanceHubAssets/forward.png",
-      hover: "/public/governanceHubAssets/forward-hover.png",
-      click: "/public/governanceHubAssets/forward-active.png",
+      image: "/public/governanceHubAssets/forward.avif",
+      hover: "/public/governanceHubAssets/forward-hover.avif",
+      click: "/public/governanceHubAssets/forward-active.avif",
       size: "small"
     },
     {
       id: "sagaverse",
-      image: "/public/governanceHubAssets/sagaverse.png",
-      hover: "/public/governanceHubAssets/sagaverse-hover.png",
-      click: "/public/governanceHubAssets/sagaverse-active.png",
+      image: "/public/governanceHubAssets/sagaverse.avif",
+      hover: "/public/governanceHubAssets/sagaverse-hover.avif",
+      click: "/public/governanceHubAssets/sagaverse-active.avif",
       size: "big"
     }],
 
@@ -56,7 +56,7 @@ export const consolePanel = {
     renderConsoleButtons() {
       let html = '';
       for(let i in this.consoleButtons) {
-        html += `<img src="/public/governanceHubAssets/${this.consoleButtons[i].id}.png" data-name="${this.consoleButtons[i].id}" class="console-btn ${this.consoleButtons[i].size}">`;
+        html += `<img src="/public/governanceHubAssets/${this.consoleButtons[i].id}.avif" data-name="${this.consoleButtons[i].id}" class="console-btn ${this.consoleButtons[i].size}">`;
       }
       consoleContainer.innerHTML = html;
     },
@@ -65,22 +65,22 @@ export const consolePanel = {
 
       consoleButtons.forEach( (button) => {
         button.addEventListener('mouseenter', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('mouseout', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}.avif`;
         })
         button.addEventListener('mousedown', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}-active.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}-active.avif`;
         })
         button.addEventListener('mouseup', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('touchstart', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('touchend', () => {
-          button.src = `/public/governanceHubAssets/${button.dataset.name}.png`;
+          button.src = `/public/governanceHubAssets/${button.dataset.name}.avif`;
         })
         button.addEventListener('click', () => {
           switch (button.dataset.name) {
@@ -108,7 +108,7 @@ export const consolePanel = {
       })
     
       // Inactive Omnihub button
-      consoleButtons[2].src = '/public/governanceHubAssets/omnihub-inactive.png';
+      consoleButtons[2].src = '/public/governanceHubAssets/omnihub-inactive.avif';
       consoleButtons[2].style.pointerEvents = 'none'
     
     }

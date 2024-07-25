@@ -8,17 +8,17 @@ const displayScreen = {
   displayButtons: [
   {
     id: "switcher",
-    video: "/public/governanceHubAssets/video.png",
-    text: "/public/governanceHubAssets/text.png",
-    videoHover: "/public/governanceHubAssets/video-hover.png",
-    textHover: "/public/governanceHubAssets/text-hover.png"
+    video: "/public/governanceHubAssets/video.avif",
+    text: "/public/governanceHubAssets/text.avif",
+    videoHover: "/public/governanceHubAssets/video-hover.avif",
+    textHover: "/public/governanceHubAssets/text-hover.avif"
   },
   {
     id: "vote",
-    image: "/public/governanceHubAssets/vote-clickable.png",
-    hover: "/public/governanceHubAssets/vote-hover.png",
-    click: "/public/governanceHubAssets/vote-active.png",
-    inactive: "/public/governanceHubAssets/vote-inert.png"
+    image: "/public/governanceHubAssets/vote-clickable.avif",
+    hover: "/public/governanceHubAssets/vote-hover.avif",
+    click: "/public/governanceHubAssets/vote-active.avif",
+    inactive: "/public/governanceHubAssets/vote-inert.avif"
   }],
 
   renderDisplayScreen() {

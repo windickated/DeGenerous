@@ -29,9 +29,9 @@ export let nftSelected;
 export function renderPanel() {
   let sideIconImage;
   if(window.outerWidth <= 600) {
-    sideIconImage = '/public/governanceHubAssets/sideIconMobileOpen.png';
+    sideIconImage = '/public/governanceHubAssets/sideIconMobileOpen.avif';
   } else {
-    sideIconImage = '/public/governanceHubAssets/sideIconPCOpen.png';
+    sideIconImage = '/public/governanceHubAssets/sideIconPCOpen.avif';
   }
   sidePanelIconContainer.innerHTML = `<img src="${sideIconImage}" class="panel-icon"></img>`;
   sidePanelIcon = document.querySelector('.panel-icon');
@@ -149,7 +149,7 @@ export const sidePanel = {
     finalPosition = 0;
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen-Inactive.png';
+      otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen-Inactive.avif';
       if(episodesPanel.panelState) {
         episodesPanel.panelState = false;
         otherEpisodesContainer.style.top = '-80%';
@@ -170,7 +170,7 @@ export const sidePanel = {
     finalPosition = 80;
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen.png';
+      otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen.avif';
       interval = setInterval(slidePanelMobile, 5);
     } else {
       interval = setInterval(slidePanelPC, 5);
@@ -180,15 +180,15 @@ export const sidePanel = {
   changeIconState() {
     if(window.outerWidth <= 600) {
       if(this.panelState) {
-        sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen.png';
+        sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen.avif';
       } else {
-        sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileClose.png';
+        sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileClose.avif';
       }
     } else {
       if(this.panelState) {
-        sidePanelIcon.src = '/public/governanceHubAssets/sideIconPCOpen.png';
+        sidePanelIcon.src = '/public/governanceHubAssets/sideIconPCOpen.avif';
       } else {
-        sidePanelIcon.src = '/public/governanceHubAssets/sideIconPCClose.png';
+        sidePanelIcon.src = '/public/governanceHubAssets/sideIconPCClose.avif';
       }
     }
   }

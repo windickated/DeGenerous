@@ -38,9 +38,9 @@ export async function renderEpisodesPanel() {
 
   let episodesIconImage;
   if(window.outerWidth <= 600) {
-    episodesIconImage = '/public/governanceHubAssets/episodesMobileOpen.png';
+    episodesIconImage = '/public/governanceHubAssets/episodesMobileOpen.avif';
   } else {
-    episodesIconImage = '/public/governanceHubAssets/episodesPCOpen.png';
+    episodesIconImage = '/public/governanceHubAssets/episodesPCOpen.avif';
   }
 
   otherEpisodesIconContainer.innerHTML = `<img class="episodes-icon" src="${episodesIconImage}"></img>`;
@@ -118,7 +118,7 @@ export const episodesPanel = {
     finalPosition = 0;
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen-Inactive.png';
+      sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen-Inactive.avif';
       if(sidePanel.panelState) {
         sidePanel.panelState = false;
         sidePanelBar.style.top = '-80%';
@@ -139,7 +139,7 @@ export const episodesPanel = {
     sidePanelBG.style.display = 'none';
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen.png';
+      sidePanelIcon.src = '/public/governanceHubAssets/sideIconMobileOpen.avif';
       finalPosition = 80;
       interval = setInterval(slidePanelMobile, 5);
     } else {
@@ -151,15 +151,15 @@ export const episodesPanel = {
   changeIconState() {
     if(window.outerWidth <= 600) {
       if(this.panelState) {
-        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen.png';
+        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileOpen.avif';
       } else {
-        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileClose.png';
+        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesMobileClose.avif';
       }
     } else {
       if(this.panelState) {
-        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesPCOpen.png';
+        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesPCOpen.avif';
       } else {
-        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesPCClose.png';
+        otherEpisodesIcon.src = '/public/governanceHubAssets/episodesPCClose.avif';
       }
     }
   }
