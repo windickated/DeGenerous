@@ -3,8 +3,8 @@
   export let storyName;
   const storyLink = storyName.replace(/\s+/g, '');
 
-  const storyImage = `/conexusAssets/titlePicture/${storySection}/${storyLink}1.avif`;
-  const descriptionImage = `/conexusAssets/descriptionPicture/${storySection}/${storyLink}.avif`;
+  const storyImage = `/DeGenerous/conexusAssets/titlePicture/${storySection}/${storyLink}1.avif`;
+  const descriptionImage = `/DeGenerous/conexusAssets/descriptionPicture/${storySection}/${storyLink}.avif`;
 </script>
 
 

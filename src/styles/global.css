@@ -51,7 +51,7 @@ table {
 /* General */
 
 html {
-  background-image: url("/conexusAssets/conexusBG.avif"), linear-gradient(#000000, #010020);
+  background-image: url("/DeGenerous/conexusAssets/conexusBG.avif"), linear-gradient(#000000, #010020);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;

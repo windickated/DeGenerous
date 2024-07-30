@@ -29,19 +29,19 @@ if(collectionTitle === 'Collaborations') {
   // Adding event listeners to story tiles
   tiles.forEach((tile:any, i) => {
     tile.addEventListener('mouseover', () => {
-      tilePictures[i].src = `/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
+      tilePictures[i].src = `/DeGenerous/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
     })
     tile.addEventListener('mouseout', () => {
-      tilePictures[i].src = `/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
+      tilePictures[i].src = `/DeGenerous/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
     })
     tile.addEventListener('click', () => {
       descriptionTile(tile);
     })
     tile.addEventListener('touchstart', () => {
-      tilePictures[i].src = `/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
+      tilePictures[i].src = `/DeGenerous/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}2.avif`;
     })
     tile.addEventListener('touchend', () => {
-      tilePictures[i].src = `/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
+      tilePictures[i].src = `/DeGenerous/sagaverseAssets/titlePicture/${tile.id.replace(/\s+/g, '')}1.avif`;
     })
   })
 </script>

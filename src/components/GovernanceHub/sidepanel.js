@@ -29,9 +29,9 @@ export let nftSelected;
 export function renderPanel() {
   let sideIconImage;
   if(window.outerWidth <= 600) {
-    sideIconImage = '/governanceHubAssets/sideIconMobileOpen.avif';
+    sideIconImage = '/DeGenerous/governanceHubAssets/sideIconMobileOpen.avif';
   } else {
-    sideIconImage = '/governanceHubAssets/sideIconPCOpen.avif';
+    sideIconImage = '/DeGenerous/governanceHubAssets/sideIconPCOpen.avif';
   }
   sidePanelIconContainer.innerHTML = `<img src="${sideIconImage}" class="panel-icon"></img>`;
   sidePanelIcon = document.querySelector('.panel-icon');
@@ -149,7 +149,7 @@ export const sidePanel = {
     finalPosition = 0;
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      otherEpisodesIcon.src = '/governanceHubAssets/episodesMobileOpen-Inactive.avif';
+      otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesMobileOpen-Inactive.avif';
       if(episodesPanel.panelState) {
         episodesPanel.panelState = false;
         otherEpisodesContainer.style.top = '-80%';
@@ -170,7 +170,7 @@ export const sidePanel = {
     finalPosition = 80;
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      otherEpisodesIcon.src = '/governanceHubAssets/episodesMobileOpen.avif';
+      otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesMobileOpen.avif';
       interval = setInterval(slidePanelMobile, 5);
     } else {
       interval = setInterval(slidePanelPC, 5);
@@ -180,15 +180,15 @@ export const sidePanel = {
   changeIconState() {
     if(window.outerWidth <= 600) {
       if(this.panelState) {
-        sidePanelIcon.src = '/governanceHubAssets/sideIconMobileOpen.avif';
+        sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconMobileOpen.avif';
       } else {
-        sidePanelIcon.src = '/governanceHubAssets/sideIconMobileClose.avif';
+        sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconMobileClose.avif';
       }
     } else {
       if(this.panelState) {
-        sidePanelIcon.src = '/governanceHubAssets/sideIconPCOpen.avif';
+        sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconPCOpen.avif';
       } else {
-        sidePanelIcon.src = '/governanceHubAssets/sideIconPCClose.avif';
+        sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconPCClose.avif';
       }
     }
   }
