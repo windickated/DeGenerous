@@ -3,8 +3,8 @@
   export let isCollab;
   const gameLink = gameName.replace(/\s+/g, '');
 
-  const gameImage = `/public/sagaverseAssets/titlePicture/${gameLink}1.avif`;
-  const descriptionImage = `/public/sagaverseAssets/descriptionPicture/${gameLink}.avif`;
+  const gameImage = `/sagaverseAssets/titlePicture/${gameLink}1.avif`;
+  const descriptionImage = `/sagaverseAssets/descriptionPicture/${gameLink}.avif`;
 </script>
 
 

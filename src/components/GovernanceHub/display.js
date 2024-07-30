@@ -8,17 +8,17 @@ const displayScreen = {
   displayButtons: [
   {
     id: "switcher",
-    video: "/public/governanceHubAssets/video.avif",
-    text: "/public/governanceHubAssets/text.avif",
-    videoHover: "/public/governanceHubAssets/video-hover.avif",
-    textHover: "/public/governanceHubAssets/text-hover.avif"
+    video: "/governanceHubAssets/video.avif",
+    text: "/governanceHubAssets/text.avif",
+    videoHover: "/governanceHubAssets/video-hover.avif",
+    textHover: "/governanceHubAssets/text-hover.avif"
   },
   {
     id: "vote",
-    image: "/public/governanceHubAssets/vote-clickable.avif",
-    hover: "/public/governanceHubAssets/vote-hover.avif",
-    click: "/public/governanceHubAssets/vote-active.avif",
-    inactive: "/public/governanceHubAssets/vote-inert.avif"
+    image: "/governanceHubAssets/vote-clickable.avif",
+    hover: "/governanceHubAssets/vote-hover.avif",
+    click: "/governanceHubAssets/vote-active.avif",
+    inactive: "/governanceHubAssets/vote-inert.avif"
   }],
 
   renderDisplayScreen() {
@@ -26,11 +26,11 @@ const displayScreen = {
     let displayScreenImage;
     let displayScreenBG;
     if(window.outerWidth <= 600) {
-      displayScreenImage = '/public/governanceHubAssets/displayMobile.avif';
-      displayScreenBG = '/public/governanceHubAssets/displayMobileBG.avif';
+      displayScreenImage = '/governanceHubAssets/displayMobile.avif';
+      displayScreenBG = '/governanceHubAssets/displayMobileBG.avif';
     } else {
-      displayScreenImage = '/public/governanceHubAssets/display.avif';
-      displayScreenBG = '/public/governanceHubAssets/displayBG.avif';
+      displayScreenImage = '/governanceHubAssets/display.avif';
+      displayScreenBG = '/governanceHubAssets/displayBG.avif';
     }
     html += `
       <img src="${displayScreenImage}" alt="Display" id="display"></img>
