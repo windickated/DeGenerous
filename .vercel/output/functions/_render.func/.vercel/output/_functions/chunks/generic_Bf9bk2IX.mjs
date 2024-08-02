@@ -1,5 +1,5 @@
-import { A as AstroError, z as InvalidImageService, B as ExpectedImageOptions, D as ExpectedImage, F as ExpectedNotESMImage, H as resolveSrc, J as isRemoteImage, K as FailedToFetchRemoteImageDimensions, Q as isESMImportedImage, T as isLocalService, U as DEFAULT_HASH_PROPS, V as ImageMissingAlt, W as isRemotePath, X as isRemoteAllowed } from './astro/assets-service_DpvWt5go.mjs';
-import { k as createAstro, l as createComponent, m as renderTemplate, n as maybeRenderHead, o as addAttribute, s as spreadAttributes } from './astro/server_Cc_Sv-nP.mjs';
+import { A as AstroError, z as InvalidImageService, B as ExpectedImageOptions, D as ExpectedImage, F as ExpectedNotESMImage, H as resolveSrc, J as isRemoteImage, K as FailedToFetchRemoteImageDimensions, Q as isESMImportedImage, T as isLocalService, U as DEFAULT_HASH_PROPS, V as ImageMissingAlt, W as isRemotePath, X as isRemoteAllowed } from './astro/assets-service_ChUv9DFU.mjs';
+import { k as createAstro, l as createComponent, m as renderTemplate, n as maybeRenderHead, o as addAttribute, s as spreadAttributes } from './astro/server_DPgwIr4z.mjs';
 import 'html-escaper';
 import 'clsx';
 import * as mime from 'mrmime';
@@ -811,7 +811,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './astro/assets-service_DpvWt5go.mjs'
+      './astro/assets-service_ChUv9DFU.mjs'
     ).then(n => n.Y).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -924,7 +924,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
     additionalAttributes.srcset = image.srcSet.attribute;
   }
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(additionalAttributes)}${spreadAttributes(image.attributes)}>`;
-}, "/Users/dima/Desktop/node_modules/astro/components/Image.astro", void 0);
+}, "/Users/dima/Desktop/DeGenerous/node_modules/astro/components/Image.astro", void 0);
 
 const $$Astro = createAstro("https://windickated.github.io");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
@@ -984,7 +984,7 @@ const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
     const srcsetAttribute = props.densities || !props.densities && !props.widths ? `${image.src}${image.srcSet.values.length > 0 ? ", " + image.srcSet.attribute : ""}` : image.srcSet.attribute;
     return renderTemplate`<source${addAttribute(srcsetAttribute, "srcset")}${addAttribute(mime.lookup(image.options.format ?? image.src) ?? `image/${image.options.format}`, "type")}${spreadAttributes(sourceAdditionalAttributes)}>`;
   })} <img${addAttribute(fallbackImage.src, "src")}${spreadAttributes(imgAdditionalAttributes)}${spreadAttributes(fallbackImage.attributes)}> </picture>`;
-}, "/Users/dima/Desktop/node_modules/astro/components/Picture.astro", void 0);
+}, "/Users/dima/Desktop/DeGenerous/node_modules/astro/components/Picture.astro", void 0);
 
 const imageConfig = {"service":{"entrypoint":"astro/assets/services/sharp","config":{}},"domains":[],"remotePatterns":[]};
 					const getImage = async (options) => await getImage$1(options, imageConfig);
