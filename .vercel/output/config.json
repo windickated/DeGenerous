@@ -1,0 +1,47 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/CoNexus\\/Collabs\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/CoNexus\\/CommunityPicks\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/CoNexus\\/DischordianSaga\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/CoNexus\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/GovernanceHub\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/Sagaverse\\/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "_render"
+		}
+	]
+}
