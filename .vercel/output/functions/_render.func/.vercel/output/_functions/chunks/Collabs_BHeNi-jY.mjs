@@ -10,9 +10,9 @@ const $$Collabs = createComponent(($$result, $$props, $$slots) => {
   const subheading = `
 Collabs are stories that are custom-written to add depth to the partners of DeGenerous DAO.`;
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Collabs | CoNexus", "header": "Collabs", "subheading": subheading, "arrow": arrow }, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "StoryCollection", $$StoryCollection, { "storySection": storySection, "storyNames": ["GLMR Apes"] })} ` })}`;
-}, "/Users/dima/Desktop/DeGenerous/src/pages/CoNexus/Collabs.astro", void 0);
+}, "/Users/dima/Desktop/src/pages/CoNexus/Collabs.astro", void 0);
 
-const $$file = "/Users/dima/Desktop/DeGenerous/src/pages/CoNexus/Collabs.astro";
-const $$url = "/DeGenerous/CoNexus/Collabs";
+const $$file = "/Users/dima/Desktop/src/pages/CoNexus/Collabs.astro";
+const $$url = "/CoNexus/Collabs";
 
 export { $$Collabs as default, $$file as file, $$url as url };

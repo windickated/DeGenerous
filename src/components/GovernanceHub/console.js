@@ -7,37 +7,37 @@ export const consolePanel = {
   consoleButtons: [
     {
       id: "conexus",
-      image: "/DeGenerous/governanceHubAssets/conexus.avif",
-      hover: "/DeGenerous/governanceHubAssets/conexus-hover.avif",
-      click: "/DeGenerous/governanceHubAssets/conexus-active.avif",
+      image: "/governanceHubAssets/conexus.avif",
+      hover: "/governanceHubAssets/conexus-hover.avif",
+      click: "/governanceHubAssets/conexus-active.avif",
       size: "big"
     },
     {
       id: "back",
-      image: "/DeGenerous/governanceHubAssets/back.avif",
-      hover: "/DeGenerous/governanceHubAssets/back-hover.avif",
-      click: "/DeGenerous/governanceHubAssets/back-active.avif",
+      image: "/governanceHubAssets/back.avif",
+      hover: "/governanceHubAssets/back-hover.avif",
+      click: "/governanceHubAssets/back-active.avif",
       size: "small"
     },
     {
       id: "omnihub",
-      image: "/DeGenerous/governanceHubAssets/omnihub.avif",
-      hover: "/DeGenerous/governanceHubAssets/omnihub-hover.avif",
-      click: "/DeGenerous/governanceHubAssets/omnihub-active.avif",
+      image: "/governanceHubAssets/omnihub.avif",
+      hover: "/governanceHubAssets/omnihub-hover.avif",
+      click: "/governanceHubAssets/omnihub-active.avif",
       size: "big"
     },
     {
       id: "forward",
-      image: "/DeGenerous/governanceHubAssets/forward.avif",
-      hover: "/DeGenerous/governanceHubAssets/forward-hover.avif",
-      click: "/DeGenerous/governanceHubAssets/forward-active.avif",
+      image: "/governanceHubAssets/forward.avif",
+      hover: "/governanceHubAssets/forward-hover.avif",
+      click: "/governanceHubAssets/forward-active.avif",
       size: "small"
     },
     {
       id: "sagaverse",
-      image: "/DeGenerous/governanceHubAssets/sagaverse.avif",
-      hover: "/DeGenerous/governanceHubAssets/sagaverse-hover.avif",
-      click: "/DeGenerous/governanceHubAssets/sagaverse-active.avif",
+      image: "/governanceHubAssets/sagaverse.avif",
+      hover: "/governanceHubAssets/sagaverse-hover.avif",
+      click: "/governanceHubAssets/sagaverse-active.avif",
       size: "big"
     }],
 
@@ -45,9 +45,9 @@ export const consolePanel = {
       let html = '';
       let consoleImageFile;
       if(window.outerWidth <= 600) {
-        consoleImageFile = '/DeGenerous/governanceHubAssets/consoleMobile.avif';
+        consoleImageFile = '/governanceHubAssets/consoleMobile.avif';
       } else {
-        consoleImageFile = '/DeGenerous/governanceHubAssets/console.avif';
+        consoleImageFile = '/governanceHubAssets/console.avif';
       }
       html += `<img src="${consoleImageFile}" alt="Console" id="console"></img>`;
       consoleImageContainer.innerHTML = html;
@@ -56,7 +56,7 @@ export const consolePanel = {
     renderConsoleButtons() {
       let html = '';
       for(let i in this.consoleButtons) {
-        html += `<img src="/DeGenerous/governanceHubAssets/${this.consoleButtons[i].id}.avif" data-name="${this.consoleButtons[i].id}" class="console-btn ${this.consoleButtons[i].size}">`;
+        html += `<img src="/governanceHubAssets/${this.consoleButtons[i].id}.avif" data-name="${this.consoleButtons[i].id}" class="console-btn ${this.consoleButtons[i].size}">`;
       }
       consoleContainer.innerHTML = html;
     },
@@ -65,22 +65,22 @@ export const consolePanel = {
 
       consoleButtons.forEach( (button) => {
         button.addEventListener('mouseenter', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}-hover.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('mouseout', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}.avif`;
         })
         button.addEventListener('mousedown', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}-active.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}-active.avif`;
         })
         button.addEventListener('mouseup', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}-hover.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('touchstart', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}-hover.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}-hover.avif`;
         })
         button.addEventListener('touchend', () => {
-          button.src = `/DeGenerous/governanceHubAssets/${button.dataset.name}.avif`;
+          button.src = `/governanceHubAssets/${button.dataset.name}.avif`;
         })
         button.addEventListener('click', () => {
           switch (button.dataset.name) {
@@ -108,7 +108,7 @@ export const consolePanel = {
       })
     
       // Inactive Omnihub button
-      consoleButtons[2].src = '/DeGenerous/governanceHubAssets/omnihub-inactive.avif';
+      consoleButtons[2].src = '/governanceHubAssets/omnihub-inactive.avif';
       consoleButtons[2].style.pointerEvents = 'none'
     
     }

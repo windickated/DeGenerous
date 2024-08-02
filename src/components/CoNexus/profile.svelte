@@ -367,7 +367,7 @@
     height: 7vw;
     width: 7vw;
     cursor: pointer;
-    background-image: url('/DeGenerous/profileIcon.avif');
+    background-image: url('/profileIcon.avif');
     background-size: contain;
     opacity: 0.4;
     z-index: 1;

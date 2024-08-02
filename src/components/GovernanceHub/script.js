@@ -125,10 +125,10 @@ function resizePage() {
     document.body.style.paddingTop = '15%';
     storyText.style.visibility = 'visible';
     sidePanelBar.style.top = '-80%';
-    sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconMobileOpen.avif';
+    sidePanelIcon.src = '/governanceHubAssets/sideIconMobileOpen.avif';
     otherEpisodesContainer.style.top = '-80%';
     otherEpisodesContainer.style.left = '0';
-    otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesMobileOpen.avif';
+    otherEpisodesIcon.src = '/governanceHubAssets/episodesMobileOpen.avif';
   } else {
     document.body.style.paddingTop = '0';
     sidePanelBar.style.top = '0';
@@ -141,8 +141,8 @@ function resizePage() {
     } else if(formatButton.src.includes(displayScreen.displayButtons[0].text)) {
       videoFrame.style.visibility = 'hidden';
     }
-    sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconPCOpen.avif';
-    otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesPCOpen.avif';
+    sidePanelIcon.src = '/governanceHubAssets/sideIconPCOpen.avif';
+    otherEpisodesIcon.src = '/governanceHubAssets/episodesPCOpen.avif';
   }
 }
 

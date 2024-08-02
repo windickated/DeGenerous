@@ -38,9 +38,9 @@ export async function renderEpisodesPanel() {
 
   let episodesIconImage;
   if(window.outerWidth <= 600) {
-    episodesIconImage = '/DeGenerous/governanceHubAssets/episodesMobileOpen.avif';
+    episodesIconImage = '/governanceHubAssets/episodesMobileOpen.avif';
   } else {
-    episodesIconImage = '/DeGenerous/governanceHubAssets/episodesPCOpen.avif';
+    episodesIconImage = '/governanceHubAssets/episodesPCOpen.avif';
   }
 
   otherEpisodesIconContainer.innerHTML = `<img class="episodes-icon" src="${episodesIconImage}"></img>`;
@@ -139,7 +139,7 @@ export const episodesPanel = {
     sidePanelBG.style.display = 'none';
     clearInterval(interval);
     if(window.outerWidth <= 600) {
-      sidePanelIcon.src = '/DeGenerous/governanceHubAssets/sideIconMobileOpen.avif';
+      sidePanelIcon.src = '/governanceHubAssets/sideIconMobileOpen.avif';
       finalPosition = 80;
       interval = setInterval(slidePanelMobile, 5);
     } else {
@@ -151,15 +151,15 @@ export const episodesPanel = {
   changeIconState() {
     if(window.outerWidth <= 600) {
       if(this.panelState) {
-        otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesMobileOpen.avif';
+        otherEpisodesIcon.src = '/governanceHubAssets/episodesMobileOpen.avif';
       } else {
-        otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesMobileClose.avif';
+        otherEpisodesIcon.src = '/governanceHubAssets/episodesMobileClose.avif';
       }
     } else {
       if(this.panelState) {
-        otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesPCOpen.avif';
+        otherEpisodesIcon.src = '/governanceHubAssets/episodesPCOpen.avif';
       } else {
-        otherEpisodesIcon.src = '/DeGenerous/governanceHubAssets/episodesPCClose.avif';
+        otherEpisodesIcon.src = '/governanceHubAssets/episodesPCClose.avif';
       }
     }
   }
