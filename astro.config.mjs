@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
 import svelte from "@astrojs/svelte";
 
-import vercel from "@astrojs/vercel/static";
+import vercelServerless from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://windickated.github.io',
   integrations: [svelte()],
   output: "server",
-  adapter: vercel()
+  adapter: vercelServerless()
 });
